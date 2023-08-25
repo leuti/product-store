@@ -1,9 +1,15 @@
 <div>
   <h1>{{ title }}</h1>
 
-  <ul *ngFor="let product of products">
+  <!-- <ul *ngFor="let product of products">
     <li>{{ product.title }}</li>
     <li>{{ product.description }}</li>
     <li>Price: {{ product.price }}</li>
   </ul>
+-->
+
+  <app-product-item
+    *ngFor="let product of products"
+    [product]="product"
+  ></app-product-item>
 </div>
