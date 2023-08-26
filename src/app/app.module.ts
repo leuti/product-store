@@ -8,6 +8,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
 import { CartComponent } from './cart/cart.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartComponentComponent } from './cart-component/cart-component.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductsComponent,
     ProductItemComponent,
     CartComponent,
-    NavBarComponent
+    NavBarComponent,
+    CartComponentComponent
   ],
   imports: [
     BrowserModule,
