@@ -1,1 +1,13 @@
 <h1>Your Shopping Cart</h1>
+
+<!--
+<a routerLink="/">Back to Product List</a>
+-->
+
+<ul>
+  <li *ngFor="let cartItem of cartList">
+    <p>Product: {{ cartItem.title }}</p>
+  </li>
+</ul>
+
+<button (click)="clearCart()">Clear Cart</button>

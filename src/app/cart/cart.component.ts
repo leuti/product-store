@@ -14,5 +14,9 @@ export class CartComponent implements OnInit {
     this.cartList = this.shoppingCartService.getCartContent();
   }
 
-  clearCart() {}
+  clearCart() {
+    this.shoppingCartService.clearCart;
+    this.cartList = [];
+    alert('Cart cleared.');
+  }
 }
