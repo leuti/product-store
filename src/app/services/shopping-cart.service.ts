@@ -21,5 +21,8 @@ export class ShoppingCartService {
 
   removeFromCart() {}
 
-  clearCart() {}
+  clearCart() {
+    this.cartList = [];
+    return this.cartList;
+  }
 }

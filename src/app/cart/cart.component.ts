@@ -10,6 +10,7 @@ import { CartItem } from '../models/CartItem';
 export class CartComponent implements OnInit {
   cartList: CartItem[] = [];
   constructor(private shoppingCartService: ShoppingCartService) {}
+
   ngOnInit(): void {
     this.cartList = this.shoppingCartService.getCartContent();
   }
