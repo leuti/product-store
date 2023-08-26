@@ -8,6 +8,7 @@ import { CartItem } from '../models/CartItem';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
+  title: string = 'Shopping Cart';
   cartList: CartItem[] = [];
   constructor(private shoppingCartService: ShoppingCartService) {}
 

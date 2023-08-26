@@ -1,3 +1,11 @@
+<h1>{{ title }}</h1>
+<div>
+  <app-cart-component
+    *ngFor="let cartItem of cartList"
+    [cartItem]="cartItem"
+  ></app-cart-component>
+</div>
+
 <h1>Your Shopping Cart</h1>
 
 <a routerLink="/">Back to Product List</a>
