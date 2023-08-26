@@ -1,11 +1,13 @@
 <h1>{{ title }}</h1>
-<div>
+<div class="cartList">
   <app-cart-component
     *ngFor="let cartItem of cartList"
     [cartItem]="cartItem"
   ></app-cart-component>
 </div>
+<button (click)="clearCart()">Clear Cart</button>
 
+<!--
 <h1>Your Shopping Cart</h1>
 
 <a routerLink="/">Back to Product List</a>
@@ -17,3 +19,4 @@
 </ul>
 
 <button (click)="clearCart()">Clear Cart</button>
+-->
