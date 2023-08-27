@@ -5,9 +5,16 @@
       product.imageFile
     }}&width={{ width }}&height={{ height }}"
   />
-  <p>{{ product.description }}</p>
-  <p>{{ product.price }}</p>
-  <p>{{ product.quantity }}</p>
+  <p class="prodDescription">{{ product.description }}</p>
+  <p>Price {{ product.price }}</p>
+  <input
+    type="text"
+    name="quantity"
+    placeholder="enter number (1-999)"
+    [(ngModel)]="product.quantity"
+  />
+  <br />
+
   <button
     class="btn btn-primary"
     style="margin-right: 10px"
