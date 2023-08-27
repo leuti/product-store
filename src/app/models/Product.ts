@@ -2,7 +2,7 @@ export class Product {
   id: number;
   title: string;
   description: string;
-  pictureUrl: string;
+  imageFile: string;
   quantity: number;
   price: number;
 
@@ -10,7 +10,7 @@ export class Product {
     this.id = 1;
     this.title = '';
     this.description = '';
-    this.pictureUrl = '';
+    this.imageFile = '';
     this.quantity = 0;
     this.price = 0;
   }

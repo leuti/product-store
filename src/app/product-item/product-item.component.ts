@@ -10,13 +10,15 @@ import { ProductsComponent } from '../products/products.component';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
+  width: number = 300;
+  height: number = 200;
 
   constructor(private shoppingCartService: ShoppingCartService) {
     this.product = {
       id: 0,
       title: '',
       description: '',
-      pictureUrl: '',
+      imageFile: '',
       quantity: 0,
       price: 0,
     };

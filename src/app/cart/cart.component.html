@@ -1,22 +1,8 @@
 <h1>{{ title }}</h1>
 <div class="cartLists">
-  <app-cart-component
+  <app-cart-item
     *ngFor="let cartItem of cartList"
     [cartItem]="cartItem"
-  ></app-cart-component>
+  ></app-cart-item>
 </div>
 <button (click)="clearCart()">Clear Cart</button>
-
-<!--
-<h1>Your Shopping Cart</h1>
-
-<a routerLink="/">Back to Product List</a>
-
-<ul>
-  <li *ngFor="let cartItem of cartList">
-    <p>Product: {{ cartItem.title }}</p>
-  </li>
-</ul>
-
-<button (click)="clearCart()">Clear Cart</button>
--->
