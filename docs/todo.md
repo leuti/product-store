@@ -8,12 +8,14 @@
 
 ## NavBar
 
+- 2 Cart button is inactive when cart is empty
 - 2 Layout
 - 3 Icon Cart (with number of products in cart)
 
 ## Products
 
 - 1 Transfer quantity to cart
+- 1 Ensure that a product is only added to cart once
 - 2 field as drop down
 - 3 Add to cart sets quantity to 1 if 0
 - 3 +/- to adjust quantities
