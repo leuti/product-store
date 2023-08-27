@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { Product } from '../models/Product';
-import { ProductsComponent } from '../products/products.component';
+//import { ProductsComponent } from '../products/products.component';
 
 @Component({
   selector: 'app-product-item',
@@ -27,8 +27,20 @@ export class ProductItemComponent implements OnInit {
   ngOnInit(): void {}
 
   addToCart(product: Product): void {
-    product.quantity += 1;
+    // Set quantity to 1 if qantity is empty or 0
+    if (product.quantity !== undefined) {
+      product.quantity += 1;
+    } else {
+      product.quantity = 1;
+    }
+
+    console.log(`Product to be added: ${JSON.stringify(product)}`);
     this.shoppingCartService.addToCart(product);
-    console.log(`Product with title: ${product.title} added`);
+
+    console.log(
+      `--- product item: cart after addToCart: ${JSON.stringify(
+        this.shoppingCartService.getCartContent()
+      )}`
+    );
   }
 }

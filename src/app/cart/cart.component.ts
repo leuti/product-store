@@ -10,10 +10,27 @@ import { CartItem } from '../models/CartItem';
 export class CartComponent implements OnInit {
   title: string = 'Your Shopping Cart';
   cartList: CartItem[] = [];
+  totalPrice: number = 0;
+
   constructor(private shoppingCartService: ShoppingCartService) {}
 
   ngOnInit(): void {
     this.cartList = this.shoppingCartService.getCartContent();
+    console.log(`cart component: cartList: ${JSON.stringify(this.cartList)}`);
+  }
+
+  // compute total price of the cart
+  getTotalPrice(): number {
+    return this.cartList.reduce(
+      (acc, cartItem) =>
+        acc + cartItem.price * (cartItem.quantity ? cartItem.quantity : 0),
+      0
+    );
+  }
+
+  // This will be called whenever a product quantity changes
+  onQuantityChange(event: any, cartItem: CartItem): void {
+    cartItem.quantity = Number(event.target.value);
   }
 
   clearCart() {

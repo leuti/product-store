@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CartItem } from '../models/CartItem';
-import { CartComponent } from '../cart/cart.component';
+//import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-cart-item',
@@ -16,7 +16,6 @@ export class CartItemComponent implements OnInit {
     this.cartItem = {
       id: 0,
       title: '',
-      description: '',
       imageFile: '',
       quantity: 0,
       price: 0,

@@ -14,14 +14,16 @@
 
 ## Products
 
-- 1 Transfer quantity to cart
-- 1 Ensure that a product is only added to cart once
+- 2 Quanity is empty when returning from cart to product list
 - 2 field as drop down
-- 3 Add to cart sets quantity to 1 if 0
-- 3 +/- to adjust quantities
+- 3 Button to reduce quantities
+
+- 1 Ensure that a product is only added to cart once --> done
+- 1 Transfer quantity to cart --> done
 - Quantity --> done
 - Product items same size --> done
 - Description smaller --> done
+- 3 Add to cart sets quantity to 1 if 0 --> done
 
 ## ProductDetails
 
