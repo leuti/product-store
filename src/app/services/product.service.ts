@@ -8,6 +8,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ProductService {
+  private selectedProduct: Product = {
+    id: 0,
+    title: '',
+    description: '',
+    imageFile: '',
+    price: 0,
+    quantity: 0,
+  };
+
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
@@ -19,5 +28,13 @@ export class ProductService {
         });
       })
     );
+  }
+
+  setSelectedProduct(product: Product): void {
+    this.selectedProduct = product;
+  }
+
+  getSelectedProduct(): Product {
+    return this.selectedProduct;
   }
 }

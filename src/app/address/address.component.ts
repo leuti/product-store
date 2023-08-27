@@ -11,4 +11,6 @@ export class AddressComponent implements OnInit {
   cardNumber: string = '';
 
   ngOnInit(): void {}
+
+  submitOrder() {}
 }

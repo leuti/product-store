@@ -13,6 +13,7 @@ import { CartComponent } from './cart/cart.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { AddressComponent } from './address/address.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AddressComponent } from './address/address.component';
     NavBarComponent,
     CartItemComponent,
     AddressComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
