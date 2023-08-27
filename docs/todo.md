@@ -16,11 +16,10 @@
 
 ## ProductDetails
 
-- 1 Add component product details
+- 2 Link "back to product list"
 
 ## Cart
 
-- 1 Submit Button
 - 2 remove product button from cart
 - 3 +/- to adjust quantities
 
