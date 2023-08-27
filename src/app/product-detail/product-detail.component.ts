@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/Product';
 import { ProductService } from '../services/product.service';
+import { ShoppingCartService } from '../services/shopping-cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -19,9 +20,23 @@ export class ProductDetailComponent implements OnInit {
   width: number = 300;
   height: number = 200;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private shoppingCartService: ShoppingCartService
+  ) {}
 
   ngOnInit(): void {
     this.product = this.productService.getSelectedProduct();
+  }
+
+  addToCart(product: Product): void {
+    // Set quantity to 1 if qantity is empty or 0
+    if (product.quantity !== undefined) {
+      product.quantity += 1;
+    } else {
+      product.quantity = 1;
+    }
+
+    this.shoppingCartService.addToCart(product);
   }
 }

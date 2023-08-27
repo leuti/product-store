@@ -1,6 +1,5 @@
 <div class="prodDetail">
   <div>
-    <h3>Hello</h3>
     <img
       src="http://localhost:3000/img/images?filename={{
         product.imageFile
@@ -9,5 +8,23 @@
   </div>
   <div>
     <h3>{{ product.title }}</h3>
+    <p>{{ product.description }}</p>
+    <p>Price: ${{ product.price }}</p>
+    <input
+      type="text"
+      name="quantity"
+      placeholder="enter number (1-999)"
+      [(ngModel)]="product.quantity"
+    />
+    <br />
+
+    <button
+      class="btn btn-primary"
+      style="margin-right: 10px"
+      (click)="addToCart(product)"
+    >
+      Add to Cart
+    </button>
+    <br />
   </div>
 </div>
