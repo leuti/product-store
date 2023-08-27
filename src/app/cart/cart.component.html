@@ -8,6 +8,6 @@
     ></app-cart-item>
     <button style="margin-left: 20px" (click)="clearCart()">Clear Cart</button>
   </div>
-  <app-address></app-address>
+  <app-address [getTotalPrice]="getTotalPrice"></app-address>
 </div>
 <p>Total Price: ${{ getTotalPrice() }}</p>
