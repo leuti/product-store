@@ -34,13 +34,6 @@ export class ProductItemComponent implements OnInit {
       product.quantity = 1;
     }
 
-    console.log(`Product to be added: ${JSON.stringify(product)}`);
     this.shoppingCartService.addToCart(product);
-
-    console.log(
-      `--- product item: cart after addToCart: ${JSON.stringify(
-        this.shoppingCartService.getCartContent()
-      )}`
-    );
   }
 }

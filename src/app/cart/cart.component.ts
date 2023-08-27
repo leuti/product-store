@@ -16,7 +16,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartList = this.shoppingCartService.getCartContent();
-    console.log(`cart component: cartList: ${JSON.stringify(this.cartList)}`);
   }
 
   // compute total price of the cart
@@ -34,7 +33,7 @@ export class CartComponent implements OnInit {
   }
 
   clearCart() {
-    this.shoppingCartService.clearCart;
+    this.shoppingCartService.clearCart();
     this.cartList = [];
     alert('Cart cleared.');
   }
