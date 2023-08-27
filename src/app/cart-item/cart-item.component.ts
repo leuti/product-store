@@ -9,6 +9,8 @@ import { CartComponent } from '../cart/cart.component';
 })
 export class CartItemComponent implements OnInit {
   @Input() cartItem: CartItem;
+  width: number = 150;
+  height: number = 100;
 
   constructor() {
     this.cartItem = {

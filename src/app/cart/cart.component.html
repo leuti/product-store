@@ -1,8 +1,11 @@
 <h1>{{ title }}</h1>
-<div class="cartLists">
-  <app-cart-item
-    *ngFor="let cartItem of cartList"
-    [cartItem]="cartItem"
-  ></app-cart-item>
+<div class="cartMain">
+  <div>
+    <app-cart-item
+      *ngFor="let cartItem of cartList"
+      [cartItem]="cartItem"
+    ></app-cart-item>
+    <button style="margin-left: 20px" (click)="clearCart()">Clear Cart</button>
+  </div>
+  <app-address></app-address>
 </div>
-<button (click)="clearCart()">Clear Cart</button>

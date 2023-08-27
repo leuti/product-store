@@ -1,5 +1,5 @@
-.cartLists {
+.cartMain {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* This creates three equally wide columns */
-  gap: 10px; /* This is the gap between the grid items */
+  grid-template-columns: 1fr 1fr; /* This creates three equally wide columns */
+  gap: 20px; /* This is the gap between the grid items */
 }

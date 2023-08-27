@@ -1,0 +1,24 @@
+<form>
+  <h3>Your Address</h3>
+  <p>Full name</p>
+  <input
+    type="text"
+    name="fullname"
+    placeholder="(minimum 3 characters)"
+    [(ngModel)]="fullName"
+  />
+  <p>Address</p>
+  <input
+    type="text"
+    name="address"
+    placeholder="(minimum 6 characters)"
+    [(ngModel)]="address"
+  />
+  <p>Credit Card Number</p>
+  <input
+    type="text"
+    name="cardnumber"
+    placeholder="(16-digit number)"
+    [(ngModel)]="cardNumber"
+  />
+</form>

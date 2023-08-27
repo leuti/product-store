@@ -2,9 +2,9 @@
 
 ## API
 
-- Connect to API
-- Serve data
-- Serve picture
+- Connect to API --> done
+- Serve data --> done
+- Serve picture --> done
 
 ## NavBar
 
@@ -15,6 +15,9 @@
 
 - Quantity field as drop down
 - Add to cart sets quantity to 1 if 0
+- Product items same size
+- Header, image in center
+- Description smaller
 
 ## ProductDetails
 

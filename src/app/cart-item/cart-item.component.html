@@ -1,8 +1,13 @@
-<div class="cartItem">
-  <div>
-    <h3>{{ cartItem.title }}</h3>
+<div class="cartItems">
+  <div style="margin-left: 50px">
+    <img
+      src="http://localhost:3000/img/images?filename={{
+        cartItem.imageFile
+      }}&width={{ width }}&height={{ height }}"
+    />
   </div>
   <div>
+    <h3>{{ cartItem.title }}</h3>
     <p>{{ cartItem.price }}</p>
     <p>{{ cartItem.quantity }}</p>
   </div>
