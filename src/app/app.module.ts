@@ -14,6 +14,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { AddressComponent } from './address/address.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { CartOrderedComponent } from './cart-ordered/cart-ordered.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     CartItemComponent,
     AddressComponent,
     ProductDetailComponent,
+    CartOrderedComponent,
   ],
   imports: [
     BrowserModule,
