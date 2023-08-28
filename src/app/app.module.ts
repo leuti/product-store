@@ -15,6 +15,8 @@ import { CartItemComponent } from './cart-item/cart-item.component';
 import { AddressComponent } from './address/address.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CartOrderedComponent } from './cart-ordered/cart-ordered.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { UserRegisterComponent } from './user-register/user-register.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { CartOrderedComponent } from './cart-ordered/cart-ordered.component';
     AddressComponent,
     ProductDetailComponent,
     CartOrderedComponent,
+    UserLoginComponent,
+    UserRegisterComponent,
   ],
   imports: [
     BrowserModule,

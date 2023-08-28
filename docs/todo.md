@@ -6,7 +6,8 @@
 
 - 2 Cart button is inactive when cart is empty
 - 2 Layout
-- 3 Icon Cart (with number of products in cart)
+- 2 Logout button
+- 2 Icon Cart (with number of products in cart) --> 🛒 [3]
 
 ## Products
 
@@ -22,6 +23,7 @@
 
 - 2 remove product button from cart
 - 2 move setOrderSuccess & getOrderSuccess function to
+- 2 display "Cart empty" if nothing is in cart
 - 3 total price --> rounding
 - 3 +/- to adjust quantities
 
