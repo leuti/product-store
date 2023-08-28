@@ -46,14 +46,12 @@
 
 ### 1 Login component
 
-- 1 create login component
 - 1 create HTML with username, password & submit button
 - 1 post to API (with token)
 - 1 setUserLoggedIn = true
 
 ### 1 Register component
 
-- 1 create register component
 - 1 create HTML with username, fullname, email
 - 1 post to API
 - 1 store token --> setUserLoggedIn = true
