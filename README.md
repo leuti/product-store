@@ -1,3 +1,39 @@
+# product-store
+
+## Concepts and components
+
+### Component hierarchy
+
+app/
+|
+|-- products/ {using services P-S & SC-S}
+| |-- product-item {using services P-S & SC-S}
+|-- product-detail {using services P-S & SC-S}
+|-- nav-bar
+|-- cart-ordered {using services SC-S}
+|-- cart/ {using services SC-S}
+| |-- cart-item
+| |-- address {using services SC-S}
+
+### Services
+
+services/
+|
+|-- ProductService/ {P-S}
+| |-- function getProducts
+| |-- function setSelectedProduct
+| |-- function getSelectedProduct
+
+|-- ShoppingCartService/ { SC-S}
+| |-- function getCartContent
+| |-- function addToCart
+| |-- function removeFromCart
+| |-- function clearCart
+| |-- function setOrderSuccess
+| |-- function getOrderSuccess
+
+---- pre-defined content ----
+
 # ProductStore
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.

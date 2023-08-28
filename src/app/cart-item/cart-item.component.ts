@@ -11,7 +11,7 @@ import { CartItem } from '../models/CartItem';
 export class CartItemComponent implements OnInit {
   @Input() cartItem: CartItem;
   width: number = 150;
-  height: number = 100;
+  height: number = 100; // used to render image in correct size
 
   constructor() {
     this.cartItem = {

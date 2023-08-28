@@ -17,10 +17,10 @@ export class CartComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartService) {}
 
   ngOnInit(): void {
-    this.cartItems = this.shoppingCartService.getCartContent();
+    this.cartItems = this.shoppingCartService.getCartContent(); // get cart content
   }
 
-  // compute total price of the cart
+  // compute total price of the cart (ACTION: move to shoppingCartServices)
   getTotalPrice(): number {
     return this.cartItems.reduce(
       (acc, cartItem) =>
@@ -34,6 +34,7 @@ export class CartComponent implements OnInit {
     cartItem.quantity = Number(event.target.value);
   }
 
+  // clears the cart content locally and on service level
   clearCart() {
     this.shoppingCartService.clearCart();
     this.cartItems = [];

@@ -18,6 +18,6 @@ export class CartOrderedComponent implements OnInit {
   constructor(private shoppingCartService: ShoppingCartService) {}
 
   ngOnInit(): void {
-    this.orderDetails = this.shoppingCartService.getOrderSuccess();
+    this.orderDetails = this.shoppingCartService.getOrderSuccess(); // get contend of ordered details
   }
 }

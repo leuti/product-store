@@ -19,21 +19,23 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
+  // call the API and get all products
   getProducts(): Observable<Product[]> {
-    console.log(`product.service - getProducts reached`);
     return this.http.get<Product[]>('http://localhost:3000/products').pipe(
       map((products) => {
         return products.map((product) => {
-          return { ...product, quantity: 0 };
+          return { ...product, quantity: 0 }; // add field quantity to every product
         });
       })
     );
   }
 
+  // the selectedProduct becomes the current product
   setSelectedProduct(product: Product): void {
     this.selectedProduct = product;
   }
 
+  // returns the currently selected product
   getSelectedProduct(): Product {
     return this.selectedProduct;
   }

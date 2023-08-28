@@ -11,7 +11,7 @@ import { CartItem } from '../models/CartItem';
   styleUrls: ['./address.component.css'],
 })
 export class AddressComponent implements OnInit {
-  @Input() getTotalPrice!: () => number;
+  @Input() getTotalPrice!: () => number; // function to calculate total price
   cartItems: CartItem[] = [];
   fullName: string = '';
   address: string = '';
@@ -23,9 +23,10 @@ export class AddressComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.cartItems = this.shoppingCartService.getCartContent();
+    this.cartItems = this.shoppingCartService.getCartContent(); // get current cartItems
   }
 
+  // Data for order checkout (success) is collected and view opened
   submitOrder(): void {
     this.shoppingCartService.setOrderSuccess(
       this.fullName,

@@ -28,9 +28,10 @@ export class ProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.product = this.productService.getSelectedProduct();
+    this.product = this.productService.getSelectedProduct(); // sets the focus to currently selected product
   }
 
+  // When add to cart button is pressed, the quantity is set / increased
   addToCart(product: Product): void {
     // Set quantity to 1 if qantity is empty or 0
     if (product.quantity !== undefined) {
@@ -39,6 +40,6 @@ export class ProductDetailComponent implements OnInit {
       product.quantity = 1;
     }
 
-    this.shoppingCartService.addToCart(product);
+    this.shoppingCartService.addToCart(product); // product is added to cart
   }
 }

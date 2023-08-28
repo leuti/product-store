@@ -12,9 +12,9 @@ import { Product } from '../models/Product';
   styleUrls: ['./product-item.component.css'],
 })
 export class ProductItemComponent implements OnInit {
-  @Input() product: Product;
+  @Input() product: Product; // get product fromo parent
   width: number = 300;
-  height: number = 200;
+  height: number = 200; // used to render images in correct size
 
   constructor(
     private shoppingCartService: ShoppingCartService,
@@ -33,11 +33,13 @@ export class ProductItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // when a product is clicked, the detail view is opened
   productClicked(): void {
-    this.productService.setSelectedProduct(this.product);
-    this.router.navigate(['/product-detail']);
+    this.productService.setSelectedProduct(this.product); // set current product
+    this.router.navigate(['/product-detail']); // navigate to detail view
   }
 
+  // When add to cart button is pressed, the quantity is set / increased
   addToCart(product: Product): void {
     // Set quantity to 1 if qantity is empty or 0
     if (product.quantity !== undefined) {
@@ -46,6 +48,6 @@ export class ProductItemComponent implements OnInit {
       product.quantity = 1;
     }
 
-    this.shoppingCartService.addToCart(product);
+    this.shoppingCartService.addToCart(product); // product is added to cart
   }
 }
