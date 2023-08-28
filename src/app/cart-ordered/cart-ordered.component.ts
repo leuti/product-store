@@ -1,6 +1,8 @@
+// external modules
 import { Component, OnInit } from '@angular/core';
-import { OrderDetails } from '../models/OrderDetails';
+// internal services & models
 import { ShoppingCartService } from '../services/shopping-cart.service';
+import { OrderDetails } from '../models/OrderDetails';
 
 @Component({
   selector: 'app-cart-ordered',

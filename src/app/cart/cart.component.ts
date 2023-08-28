@@ -1,4 +1,6 @@
+// external modules
 import { Component, OnInit } from '@angular/core';
+// internal services & models
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { CartItem } from '../models/CartItem';
 

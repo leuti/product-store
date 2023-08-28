@@ -1,7 +1,9 @@
+// external modules
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../models/Product';
+// internal services & models
 import { ProductService } from '../services/product.service';
 import { ShoppingCartService } from '../services/shopping-cart.service';
+import { Product } from '../models/Product';
 
 @Component({
   selector: 'app-product-detail',

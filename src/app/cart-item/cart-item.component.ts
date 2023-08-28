@@ -1,6 +1,7 @@
+// external modules
 import { Component, OnInit, Input } from '@angular/core';
+// internal services & models
 import { CartItem } from '../models/CartItem';
-//import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-cart-item',
