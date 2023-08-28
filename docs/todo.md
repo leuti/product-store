@@ -28,8 +28,30 @@
 ## Success page
 
 - 2 Beautify
-- Implement return to product list button
+- 2 Implement return to product list button
+
+## Address component
+
+- 1 Submit button dynamic (if logged in = submit / else login + register)
 
 ## Login
 
-- 3 Create login (to send orders)
+### User service
+
+- 1 create User services
+- 1 create setUserLoggedIn function
+- 1 create getUserLoggedIn function
+
+### 1 Login component
+
+- 1 create login component
+- 1 create HTML with username, password & submit button
+- 1 post to API (with token)
+- 1 setUserLoggedIn = true
+
+### 1 Register component
+
+- 1 create register component
+- 1 create HTML with username, fullname, email
+- 1 post to API
+- 1 store token --> setUserLoggedIn = true
