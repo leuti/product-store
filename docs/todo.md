@@ -21,11 +21,14 @@
 ## Cart
 
 - 2 remove product button from cart
+- 2 move setOrderSuccess & getOrderSuccess function to
+- 3 total price --> rounding
 - 3 +/- to adjust quantities
 
 ## Success page
 
-- 1 Create page
+- 2 Beautify
+- Implement return to product list button
 
 ## Login
 

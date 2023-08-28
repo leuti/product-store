@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../models/Product';
-import { OrderDetails } from '../models/OrderDetails';
 
 @Injectable({
   providedIn: 'root',
@@ -16,11 +15,6 @@ export class ProductService {
     imageFile: '',
     price: 0,
     quantity: 0,
-  };
-
-  private orderDetails: OrderDetails = {
-    fullName: '',
-    totalPrice: 0,
   };
 
   constructor(private http: HttpClient) {}
@@ -42,15 +36,5 @@ export class ProductService {
 
   getSelectedProduct(): Product {
     return this.selectedProduct;
-  }
-
-  setOrderSuccess(fullName: string, totalPrice: number): void {
-    this.orderDetails = { fullName, totalPrice };
-    console.log(`Order details set: ${JSON.stringify(this.orderDetails)}`);
-  }
-
-  getOrderSuccess(): OrderDetails {
-    console.log(`Get Order details: ${JSON.stringify(this.orderDetails)}`);
-    return this.orderDetails;
   }
 }

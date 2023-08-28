@@ -2,12 +2,17 @@ import { Injectable } from '@angular/core';
 
 import { CartItem } from '../models/CartItem';
 import { Product } from '../models/Product';
+import { OrderDetails } from '../models/OrderDetails';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ShoppingCartService {
   cartList: CartItem[] = [];
+  private orderDetails: OrderDetails = {
+    fullName: '',
+    totalPrice: 0,
+  };
 
   constructor() {}
 
@@ -40,5 +45,15 @@ export class ShoppingCartService {
   clearCart() {
     this.cartList = [];
     return this.cartList;
+  }
+
+  setOrderSuccess(fullName: string, totalPrice: number): void {
+    this.orderDetails = { fullName, totalPrice };
+    console.log(`Order details set: ${JSON.stringify(this.orderDetails)}`);
+  }
+
+  getOrderSuccess(): OrderDetails {
+    console.log(`Get Order details: ${JSON.stringify(this.orderDetails)}`);
+    return this.orderDetails;
   }
 }

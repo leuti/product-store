@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderDetails } from '../models/OrderDetails';
-import { ProductService } from '../services/product.service';
+import { ShoppingCartService } from '../services/shopping-cart.service';
 
 @Component({
   selector: 'app-cart-ordered',
@@ -13,9 +13,9 @@ export class CartOrderedComponent implements OnInit {
     totalPrice: 0,
   };
 
-  constructor(private productService: ProductService) {}
+  constructor(private shoppingCartService: ShoppingCartService) {}
 
   ngOnInit(): void {
-    this.orderDetails = this.productService.getOrderSuccess();
+    this.orderDetails = this.shoppingCartService.getOrderSuccess();
   }
 }
