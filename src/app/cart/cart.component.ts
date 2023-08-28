@@ -11,18 +11,18 @@ import { CartItem } from '../models/CartItem';
 })
 export class CartComponent implements OnInit {
   title: string = 'Your Shopping Cart';
-  cartList: CartItem[] = [];
+  cartItems: CartItem[] = [];
   totalPrice: number = 0;
 
   constructor(private shoppingCartService: ShoppingCartService) {}
 
   ngOnInit(): void {
-    this.cartList = this.shoppingCartService.getCartContent();
+    this.cartItems = this.shoppingCartService.getCartContent();
   }
 
   // compute total price of the cart
   getTotalPrice(): number {
-    return this.cartList.reduce(
+    return this.cartItems.reduce(
       (acc, cartItem) =>
         acc + cartItem.price * (cartItem.quantity ? cartItem.quantity : 0),
       0
@@ -36,7 +36,7 @@ export class CartComponent implements OnInit {
 
   clearCart() {
     this.shoppingCartService.clearCart();
-    this.cartList = [];
+    this.cartItems = [];
     alert('Cart cleared.');
   }
 }

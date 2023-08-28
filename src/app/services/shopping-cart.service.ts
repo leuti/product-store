@@ -8,7 +8,7 @@ import { OrderDetails } from '../models/OrderDetails';
   providedIn: 'root',
 })
 export class ShoppingCartService {
-  cartList: CartItem[] = [];
+  cartItems: CartItem[] = [];
   private orderDetails: OrderDetails = {
     fullName: '',
     totalPrice: 0,
@@ -17,16 +17,16 @@ export class ShoppingCartService {
   constructor() {}
 
   getCartContent() {
-    return this.cartList;
+    return this.cartItems;
   }
 
   addToCart(product: Product) {
     // get array index of cartItem
-    const cartIndex = this.cartList.findIndex((prod) => prod.id == product.id);
+    const cartIndex = this.cartItems.findIndex((prod) => prod.id == product.id);
 
-    // If the cartItem is not yet existing in the cartList, it is added
+    // If the cartItem is not yet existing in the cartItems, it is added
     if (cartIndex === -1) {
-      this.cartList.push({
+      this.cartItems.push({
         id: product.id,
         title: product.title,
         imageFile: product.imageFile,
@@ -35,16 +35,16 @@ export class ShoppingCartService {
       });
     } else {
       // If it is already existing, I overwrite the existing quantity
-      this.cartList[cartIndex].quantity = product.quantity;
+      this.cartItems[cartIndex].quantity = product.quantity;
     }
-    return this.cartList;
+    return this.cartItems;
   }
 
   removeFromCart() {}
 
   clearCart() {
-    this.cartList = [];
-    return this.cartList;
+    this.cartItems = [];
+    return this.cartItems;
   }
 
   setOrderSuccess(fullName: string, totalPrice: number): void {

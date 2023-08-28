@@ -12,7 +12,7 @@ import { CartItem } from '../models/CartItem';
 })
 export class AddressComponent implements OnInit {
   @Input() getTotalPrice!: () => number;
-  cartList: CartItem[] = [];
+  cartItems: CartItem[] = [];
   fullName: string = '';
   address: string = '';
   cardNumber: string = '';
@@ -23,7 +23,7 @@ export class AddressComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.cartList = this.shoppingCartService.getCartContent();
+    this.cartItems = this.shoppingCartService.getCartContent();
   }
 
   submitOrder(): void {

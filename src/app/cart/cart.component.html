@@ -3,7 +3,7 @@
 <div class="cartMain">
   <div>
     <app-cart-item
-      *ngFor="let cartItem of cartList"
+      *ngFor="let cartItem of cartItems"
       [cartItem]="cartItem"
     ></app-cart-item>
     <button style="margin-left: 20px" (click)="clearCart()">Clear Cart</button>
