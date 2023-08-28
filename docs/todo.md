@@ -40,7 +40,6 @@
 
 ### User service
 
-- 1 create User services
 - 1 create setUserLoggedIn function
 - 1 create getUserLoggedIn function
 
@@ -52,6 +51,6 @@
 
 ### 1 Register component
 
-- 1 create HTML with username, fullname, email
+- 1 create HTML with username, fullname, email, password
 - 1 post to API
 - 1 store token --> setUserLoggedIn = true

@@ -1,7 +1,9 @@
+// external modules
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+// internal services & models
 import { Product } from '../models/Product';
 
 @Injectable({
