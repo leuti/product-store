@@ -1,37 +1,35 @@
-<form>
-  <h3>Your Address</h3>
-  <p>Full name</p>
-  <input
-    type="text"
-    name="fullname"
-    placeholder="(minimum 3 characters)"
-    [(ngModel)]="fullName"
-  />
-  <p>Address</p>
-  <input
-    type="text"
-    name="address"
-    placeholder="(minimum 6 characters)"
-    [(ngModel)]="address"
-  />
-  <p>Credit Card Number</p>
-  <input
-    type="text"
-    name="cardnumber"
-    placeholder="(16-digit number)"
-    [(ngModel)]="cardNumber"
-  />
-  <button
-    *ngIf="userLoggedIn"
-    style="margin-left: 20px"
-    (click)="submitOrder()"
-  >
-    Submit
-  </button>
-  <button *ngIf="!userLoggedIn" style="margin-left: 20px" (click)="register()">
-    Register
-  </button>
-  <button *ngIf="!userLoggedIn" style="margin-left: 20px" (click)="login()">
-    Log-in
-  </button>
-</form>
+<div>
+  <div *ngIf="!userLoggedIn">
+    <h4>Please register or login before the order can be submitted</h4>
+    <br />
+    <button style="margin-left: 20px" (click)="register()">Register</button>
+    <button style="margin-left: 20px" (click)="login()">Log-in</button>
+  </div>
+  <form *ngIf="userLoggedIn">
+    <h3>Your Address</h3>
+    <p>Please complete missing data</p>
+    <br />
+    <p>Full name</p>
+    <input
+      type="text"
+      name="fullname"
+      placeholder="(minimum 3 characters)"
+      [(ngModel)]="fullName"
+    />
+    <p>Address</p>
+    <input
+      type="text"
+      name="address"
+      placeholder="(minimum 6 characters)"
+      [(ngModel)]="address"
+    />
+    <p>Credit Card Number</p>
+    <input
+      type="text"
+      name="cardnumber"
+      placeholder="(16-digit number)"
+      [(ngModel)]="cardNumber"
+    />
+    <button style="margin-left: 20px" (click)="submitOrder()">Submit</button>
+  </form>
+</div>

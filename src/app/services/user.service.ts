@@ -1,6 +1,6 @@
 // external modules
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, concat } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 // internal services & models
 import { User } from '../models/Users';
@@ -10,6 +10,7 @@ import { User } from '../models/Users';
 })
 export class UserService {
   userLoggedIn: boolean = false;
+  fullname: string = '';
 
   constructor(private http: HttpClient) {}
 
@@ -26,5 +27,14 @@ export class UserService {
 
   getUserLoggedIn(): boolean {
     return this.userLoggedIn;
+  }
+
+  setUserData(firstname: string, lastname: string): void {
+    this.fullname = firstname + ' ' + lastname;
+    console.log(`Setting User data: ${this.fullname}`);
+  }
+
+  getUserData(): string {
+    return this.fullname;
   }
 }

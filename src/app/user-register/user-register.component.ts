@@ -42,14 +42,18 @@ export class UserRegisterComponent implements OnInit {
       email: email,
       token: token,
     };
-    // this.userService.register(user);
 
+    // register user
     this.userService.register(user).subscribe((res) => {
-      this.user = res;
-      localStorage.setItem('token', this.user.token);
-      this.userService.setUserLoggedIn();
-      console.log(`Registered user: ${JSON.stringify(this.user)}`);
-      this.router.navigate(['cart']);
+      this.user = res; // set user to res
+      localStorage.setItem('token', this.user.token); // store token in localStorage
+      this.userService.setUserLoggedIn(); // Inform user service that user is loggedIn
+      console.log(`user: ${JSON.stringify(this.user)}`);
+      console.log(
+        `Registered user: ${this.user.firstName} + ${this.user.lastName}`
+      );
+      this.userService.setUserData(this.user.firstName, this.user.lastName);
+      this.router.navigate(['cart']); // navigate to cart
     });
   }
 }
