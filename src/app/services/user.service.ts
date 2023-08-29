@@ -9,6 +9,8 @@ import { User } from '../models/Users';
   providedIn: 'root',
 })
 export class UserService {
+  userLoggedIn: boolean = false;
+
   constructor(private http: HttpClient) {}
 
   // send user to API and register
@@ -16,5 +18,13 @@ export class UserService {
     const headers = { 'Content-Type': 'application/json' };
     console.log(`Registring user ${JSON.stringify(user)}`);
     return this.http.post('http://localhost:3000/users', user, { headers });
+  }
+
+  setUserLoggedIn(): void {
+    this.userLoggedIn = true;
+  }
+
+  getUserLoggedIn(): boolean {
+    return this.userLoggedIn;
   }
 }

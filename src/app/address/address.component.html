@@ -21,5 +21,17 @@
     placeholder="(16-digit number)"
     [(ngModel)]="cardNumber"
   />
-  <button style="margin-left: 20px" (click)="submitOrder()">Submit</button>
+  <button
+    *ngIf="userLoggedIn"
+    style="margin-left: 20px"
+    (click)="submitOrder()"
+  >
+    Submit
+  </button>
+  <button *ngIf="!userLoggedIn" style="margin-left: 20px" (click)="register()">
+    Register
+  </button>
+  <button *ngIf="!userLoggedIn" style="margin-left: 20px" (click)="login()">
+    Log-in
+  </button>
 </form>
