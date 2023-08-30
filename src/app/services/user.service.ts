@@ -28,7 +28,12 @@ export class UserService {
     this.fullname = user.firstName + user.lastName;
   }
 
-  authenticate() {}
+  authenticate(user: User): Observable<any> {
+    const headers = { 'Content-Type': 'application/json' };
+    return this.http.post('http://localhost:3000/users/authenticate', user, {
+      headers,
+    });
+  }
 
   setUserLoggedIn(): void {
     this.userLoggedIn = true;

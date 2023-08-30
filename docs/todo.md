@@ -34,17 +34,14 @@
 
 ## Address component
 
-- 1 Submit button dynamic (if logged in = submit / else login + register)
-
 ## Login
 
 ### User service
 
 ### 1 Login component
 
-- 1 create HTML with username, password & submit button
-- 1 post to API (with token)
 - 1 setUserLoggedIn = true
+- 1 Ensure that login is unique
 
 ### 1 Register component
 

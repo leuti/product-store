@@ -1,9 +1,9 @@
 // external modules
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // internal services & models
 import { UserService } from '../services/user.service';
-import { Router } from '@angular/router';
 import { User } from '../models/Users';
 
 @Component({
