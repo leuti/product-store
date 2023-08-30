@@ -46,13 +46,8 @@ export class UserRegisterComponent implements OnInit {
     // register user
     this.userService.register(user).subscribe((res) => {
       this.user = res; // set user to res
-      localStorage.setItem('token', this.user.token); // store token in localStorage
-      this.userService.setUserLoggedIn(); // Inform user service that user is loggedIn
-      console.log(`user: ${JSON.stringify(this.user)}`);
-      console.log(
-        `Registered user: ${this.user.firstName} + ${this.user.lastName}`
-      );
-      this.userService.setUserData(this.user.firstName, this.user.lastName);
+
+      this.userService.storeUser(this.user);
       this.router.navigate(['cart']); // navigate to cart
     });
   }

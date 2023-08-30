@@ -40,9 +40,6 @@
 
 ### User service
 
-- 1 create setUserLoggedIn function
-- 1 create getUserLoggedIn function
-
 ### 1 Login component
 
 - 1 create HTML with username, password & submit button
@@ -51,6 +48,7 @@
 
 ### 1 Register component
 
-- 1 create HTML with username, fullname, email, password
-- 1 post to API
-- 1 store token --> setUserLoggedIn = true
+### Authentication
+
+- Switch to HttpOnly Cookies (see ChatGPT chat "Angular")
+- Switch to https (see ChatGPT chat "Angular")
