@@ -34,6 +34,8 @@
 
 ## Address component
 
+- Vadate form data
+
 ## Login
 
 ### User service
@@ -47,5 +49,13 @@
 
 ### Authentication
 
+- setUserLoggedIn to take boolean to userLoggedIn state
 - Switch to HttpOnly Cookies (see ChatGPT chat "Angular")
 - Switch to https (see ChatGPT chat "Angular")
+- Error handling
+  -- Registration: Login already exists; data incomplete; other error
+  -- Login: Login not existing; password not correct; other error
+  --
+
+- Logoff function
+- checkTokenAtStartup: authenticate user with token
