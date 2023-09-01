@@ -38,14 +38,14 @@
   <button
     style="margin-left: 20px"
     (click)="
-      register(
-        user.login,
-        user.password,
-        user.firstName,
-        user.lastName,
-        user.email,
-        user.token
-      )
+      register({
+        login: user.login,
+        password: user.password,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        token: user.token
+      })
     "
   >
     Register

@@ -26,28 +26,13 @@ export class UserRegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  register(
-    login: string,
-    password: string,
-    firstName: string,
-    lastName: string,
-    email: string,
-    token: string
-  ): void {
-    const user = {
-      login: login,
-      password: password,
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      token: token,
-    };
-
+  // register user
+  register(user: User): void {
     // register user
     this.userService.register(user).subscribe((res) => {
       this.token = res; // set user to res
-
-      this.userService.storeToken(this.token);
+      this.userService.storeToken(this.token); // store token in localStorage
+      this.userService.setUserData(this.token); // store user data in localStorage
       this.router.navigate(['cart']); // navigate to cart
     });
   }
