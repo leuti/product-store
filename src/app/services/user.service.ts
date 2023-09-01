@@ -11,6 +11,7 @@ import { User } from '../models/Users';
 export class UserService {
   userLoggedIn: boolean = false;
   fullname: string = '';
+  token: string = '';
 
   constructor(private http: HttpClient) {}
 
@@ -21,19 +22,25 @@ export class UserService {
     return this.http.post('http://localhost:3000/users', user, { headers });
   }
 
-  storeUser(user: User) {
-    localStorage.setItem('user', JSON.stringify(user)); // store token in localStorage
-    this.userLoggedIn = true; // Inform user service that user is loggedIn
-    console.log(`user: ${JSON.stringify(user)}`);
-    this.fullname = user.firstName + user.lastName;
+  // send
+  loginUser(login: string, password: string): Observable<any> {
+    const headers = { 'Content-Type': 'application/json' };
+    return this.http.post(
+      'http://localhost:3000/users/authenticate',
+      { login, password },
+      {
+        headers,
+      }
+    );
   }
 
-  authenticate(user: User): Observable<any> {
-    const headers = { 'Content-Type': 'application/json' };
-    return this.http.post('http://localhost:3000/users/authenticate', user, {
-      headers,
-    });
+  storeToken(token: string) {
+    localStorage.setItem('token', JSON.stringify(token)); // store token in localStorage
+    this.userLoggedIn = true; // Inform user service that user is loggedIn
+    console.log(`1 token stored: ${JSON.stringify(token)}`);
   }
+
+  storeUser(user: User) {}
 
   setUserLoggedIn(): void {
     this.userLoggedIn = true;
@@ -43,12 +50,73 @@ export class UserService {
     return this.userLoggedIn;
   }
 
-  setUserData(firstname: string, lastname: string): void {
-    this.fullname = firstname + ' ' + lastname;
-    console.log(`Setting User data: ${this.fullname}`);
+  setUserData(token: string): void {
+    console.log(`setUserData reached with ${token}`);
+    const decodedToken = this.decodeJwt(token);
+    const user: User = {
+      id: decodedToken?.payload.id,
+      login: decodedToken?.payload.login,
+      firstName: decodedToken?.payload.firstName,
+      lastName: decodedToken?.payload.lastName,
+      password: '',
+      email: '',
+      token: '',
+    };
+    localStorage.setItem('user', JSON.stringify(user)); // store token in localStorage
+    this.userLoggedIn = true; // Inform user service that user is loggedIn
+    console.log(`1 token stored: ${JSON.stringify(user)}`);
   }
 
-  getUserData(): string {
-    return this.fullname;
+  //getUserData(): Observable<any> {
+  getUserData(token: string): void {
+    const headers = { 'Content-Type': 'application/json' };
+    console.log(`2 decoded token: ${token}`);
+    const decodedToken = this.decodeJwt(token);
+    console.log(`4 decoded token: ${decodedToken}`);
+    /*return this.http.post('http://localhost:3000/users', this.user, {
+        headers,
+      });*/
+  }
+
+  // decode JWT token
+  decodeJwt(token: string) {
+    console.log(`2 decodeJwt function --> token: ${token}`);
+    let parts = token.split('.');
+
+    console.log(`Number of parts: ${parts.length}`);
+    for (let i = 0; i++; i < parts.length) {
+      console.log(`part ${parts[i]}: ${JSON.stringify(parts[i])}`);
+    }
+
+    // Check if the token structure is valid
+    if (parts.length !== 3) {
+      return null;
+    } else {
+      console.log(`++++++++++++++++++++++++++++++++++++++++++++++++`);
+    }
+    console.log('******************Noch drin**********************');
+    let header = this.base64UrlDecode(parts[0]);
+    let payload = this.base64UrlDecode(parts[1]);
+
+    console.log(`                   --> header: ${header}`);
+    console.log(`                   --> payload: ${payload}`);
+
+    return {
+      header: JSON.parse(header),
+      payload: JSON.parse(payload),
+    };
+  }
+
+  // proposed by ChatGPT
+  base64UrlDecode(input: string): string {
+    // Replace URL-safe characters with regular base64 characters
+    let base64 = input.replace('-', '+').replace('_', '/');
+
+    // Add the necessary padding
+    while (base64.length % 4) {
+      base64 += '=';
+    }
+
+    return atob(base64);
   }
 }

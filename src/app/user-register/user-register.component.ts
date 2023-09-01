@@ -45,9 +45,9 @@ export class UserRegisterComponent implements OnInit {
 
     // register user
     this.userService.register(user).subscribe((res) => {
-      this.user = res; // set user to res
+      this.token = res; // set user to res
 
-      this.userService.storeUser(this.user);
+      this.userService.storeToken(this.token);
       this.router.navigate(['cart']); // navigate to cart
     });
   }

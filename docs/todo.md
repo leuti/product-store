@@ -40,6 +40,8 @@
 
 ### User service
 
+- Logoff function
+
 ### 1 Login component
 
 - 1 setUserLoggedIn = true
@@ -50,12 +52,18 @@
 ### Authentication
 
 - setUserLoggedIn to take boolean to userLoggedIn state
-- Switch to HttpOnly Cookies (see ChatGPT chat "Angular")
-- Switch to https (see ChatGPT chat "Angular")
 - Error handling
   -- Registration: Login already exists; data incomplete; other error
   -- Login: Login not existing; password not correct; other error
-  --
+  -- Authentication: Check of expired toakens (if implemented)
 
-- Logoff function
+- API to only return token
+- Get user details via separate API call
+- Implement caching of user data on API side (optional)
+- Rotate tokens
+
 - checkTokenAtStartup: authenticate user with token
+
+- Switch to HttpOnly Cookies (see ChatGPT chat "Angular")
+- Switch to https (see ChatGPT chat "Angular")
+- Implement token Rotation

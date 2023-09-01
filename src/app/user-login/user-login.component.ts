@@ -14,6 +14,7 @@ import { User } from '../models/Users';
 export class UserLoginComponent implements OnInit {
   login: string = '';
   password: string = '';
+  token: string = '';
   user: User = {
     login: '',
     password: '',
@@ -28,13 +29,11 @@ export class UserLoginComponent implements OnInit {
   ngOnInit(): void {}
 
   loginUser(login: string, password: string): void {
-    this.user.login = login;
-    this.user.password = password;
-
     // authenticate user
-    this.userService.authenticate(this.user).subscribe((res) => {
-      this.user = res; // set user to res
-      this.userService.storeUser(this.user); // set user data in localStore
+    this.userService.loginUser(login, password).subscribe((res) => {
+      this.token = res;
+      this.userService.storeToken(this.token); // store token in localStorage
+      this.userService.setUserData(this.token); // get and store user data in localStorage
       console.log(`User authenticated: ${JSON.stringify(this.user)}`);
       this.router.navigate(['cart']); // navigate to cart
     });

@@ -28,7 +28,7 @@ export class AddressComponent implements OnInit {
   ngOnInit(): void {
     this.cartItems = this.shoppingCartService.getCartContent(); // get current cartItems
     this.userLoggedIn = this.userService.getUserLoggedIn();
-    this.fullName = this.userService.getUserData();
+    //this.fullName = this.userService.getUserData();
   }
 
   // Data for order checkout (success) is collected and view opened
@@ -45,7 +45,7 @@ export class AddressComponent implements OnInit {
   }
 
   getUserData() {
-    this.fullName = this.userService.getUserData();
+    //this.fullName = this.userService.getUserData();
   }
 
   register() {
