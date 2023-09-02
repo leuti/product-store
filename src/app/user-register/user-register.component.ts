@@ -33,12 +33,11 @@ export class UserRegisterComponent implements OnInit {
     console.log(`Register function reached ${JSON.stringify(user)}`);
     this.userService.registerUser(user).subscribe({
       next: (res) => {
-        if (res && res.message) {
+        if (res && !res.message) {
           this.token = res;
           this.userService.storeToken(this.token); // store token in localStorage
           this.userService.setUserData(this.token); // store user data in localStorage
           this.userService.setUserLoggedIn(true); // user has logged in
-          console.log(`Register function now about to navigate to cart`);
           this.router.navigate(['cart']); // navigate to cart
         }
       },

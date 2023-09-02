@@ -34,7 +34,7 @@ export class UserLoginComponent implements OnInit {
     this.userService.loginUser(login, password).subscribe({
       next: (res) => {
         console.log(`loginUser: next function`);
-        if (res && res.message) {
+        if (res && !res.message) {
           this.token = res;
           this.userService.storeToken(this.token); // store token in localStorage
           this.userService.setUserData(this.token); // get and store user data in localStorage

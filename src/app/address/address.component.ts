@@ -38,7 +38,7 @@ export class AddressComponent implements OnInit {
     this.cartItems = this.shoppingCartService.getCartContent(); // get current cartItems
     this.userLoggedIn = this.userService.getUserLoggedIn();
     this.user = this.userService.getUserData();
-    this.fullName = this.user?.firstName + '' + this.user?.lastName;
+    this.fullName = this.user?.firstName + ' ' + this.user?.lastName;
   }
 
   // Data for order checkout (success) is collected and view opened

@@ -6,6 +6,7 @@
 - MUST: Write README.md
 - remove alers
 - remove console logs
+- all buttons should be grayed out if form not valid
 
 ## API
 
