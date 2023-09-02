@@ -1,57 +1,61 @@
-<form>
-  <h3>Register to Shop</h3>
-  <p>Login</p>
-  <input
-    type="text"
-    name="login"
-    placeholder="(minimum 3 characters)"
-    [(ngModel)]="user.login"
-  />
-  <p>Password</p>
-  <input
-    type="password"
-    name="password"
-    placeholder="(minimum 6 characters)"
-    [(ngModel)]="user.password"
-  />
-  <p>First Name</p>
-  <input
-    type="text"
-    name="firstName"
-    placeholder="(minimum 6 characters)"
-    [(ngModel)]="user.firstName"
-  />
-  <p>Last Name</p>
-  <input
-    type="text"
-    name="lastName"
-    placeholder="(minimum 6 characters)"
-    [(ngModel)]="user.lastName"
-  />
-  <p>E-mail</p>
-  <input
-    type="text"
-    name="email"
-    placeholder="E-Mail"
-    [(ngModel)]="user.email"
-  />
-  <button
-    style="margin-left: 20px"
-    (click)="
-      register({
-        login: user.login,
-        password: user.password,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        token: user.token
-      })
-    "
-  >
-    Register
-  </button>
+<div class="centered-content">
+  <form class="register-form">
+    <h3>Register to Shop</h3>
+    <p>Login</p>
+    <input
+      type="text"
+      name="login"
+      placeholder="(minimum 3 characters)"
+      [(ngModel)]="user.login"
+    />
+    <p>Password</p>
+    <input
+      type="password"
+      name="password"
+      placeholder="(minimum 6 characters)"
+      [(ngModel)]="user.password"
+    />
+    <p>First Name</p>
+    <input
+      type="text"
+      name="firstName"
+      placeholder="(minimum 6 characters)"
+      [(ngModel)]="user.firstName"
+    />
+    <p>Last Name</p>
+    <input
+      type="text"
+      name="lastName"
+      placeholder="(minimum 6 characters)"
+      [(ngModel)]="user.lastName"
+    />
+    <p>E-mail</p>
+    <input
+      type="text"
+      name="email"
+      placeholder="E-Mail"
+      [(ngModel)]="user.email"
+    />
+    <div class="register-container">
+      <button
+        style="margin-left: 20px"
+        (click)="
+          register({
+            login: user.login,
+            password: user.password,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            token: user.token
+          })
+        "
+      >
+        Register
+      </button>
 
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
-  </div>
-</form>
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </form>
+</div>
