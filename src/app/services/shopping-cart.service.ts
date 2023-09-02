@@ -1,5 +1,8 @@
+// external modules
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
+// internal services & models
 import { CartItem } from '../models/CartItem';
 import { Product } from '../models/Product';
 import { OrderDetails } from '../models/OrderDetails';
@@ -13,6 +16,9 @@ export class ShoppingCartService {
     fullName: '',
     totalPrice: 0,
   };
+  private cartItemsCount = new BehaviorSubject<number>(0); // Initialize with 0 items.
+  public cartItemsCount$: Observable<number> =
+    this.cartItemsCount.asObservable(); // Expose the observable for components to subscribe
 
   constructor() {}
 
@@ -33,6 +39,10 @@ export class ShoppingCartService {
         price: product.price,
         quantity: product.quantity,
       });
+
+      // Update the cartItemsCount
+      const currentCount = this.cartItemsCount.value;
+      this.cartItemsCount.next(currentCount + 1);
     } else {
       // If it is already existing, I overwrite the existing quantity
       this.cartItems[cartIndex].quantity = product.quantity;
@@ -40,7 +50,10 @@ export class ShoppingCartService {
     return this.cartItems;
   }
 
-  removeFromCart() {}
+  removeFromCart() {
+    const currentCount = this.cartItemsCount.value;
+    this.cartItemsCount.next(currentCount - 1);
+  }
 
   clearCart() {
     this.cartItems = [];

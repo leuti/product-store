@@ -3,7 +3,11 @@
   <div class="centered-buttons">
     <button class="nav-button" routerLink="/">Products List</button>
     <br />
-    <button class="nav-button" routerLink="/cart">Shopping Cart</button>
+    <button class="nav-button" routerLink="/cart">
+      Shopping Cart<span *ngIf="cartCount > 0">{{
+        " " + cartCount + " items"
+      }}</span>
+    </button>
     <br />
   </div>
   <button
