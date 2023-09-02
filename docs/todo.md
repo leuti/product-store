@@ -59,3 +59,4 @@
 - Switch to https (see ChatGPT chat "Angular")
 
 - Implement token Rotation
+- set base64UrlDecode and more to private

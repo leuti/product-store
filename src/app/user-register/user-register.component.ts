@@ -21,6 +21,7 @@ export class UserRegisterComponent implements OnInit {
     token: '',
   };
   token: string = '';
+  errorMessage: string = '';
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -29,12 +30,19 @@ export class UserRegisterComponent implements OnInit {
   // register user
   register(user: User): void {
     // register user
-    this.userService.registerUser(user).subscribe((res) => {
-      this.token = res; // set user to res
-      this.userService.storeToken(this.token); // store token in localStorage
-      this.userService.setUserData(this.token); // store user data in localStorage
-      this.userService.setUserLoggedIn(true); // user has logged in
-      this.router.navigate(['cart']); // navigate to cart
-    });
+    this.userService.registerUser(user).subscribe(
+      (res) => {
+        console.log(`register - API result: ${JSON.stringify(res)}`);
+        if (res && res.message) this.token = res; // set user to resthis.userService.storeToken(this.token); // store token in localStorage
+        this.userService.setUserData(this.token); // store user data in localStorage
+        this.userService.setUserLoggedIn(true); // user has logged in
+        this.router.navigate(['cart']); // navigate to cart
+      },
+
+      (error: string) => {
+        this.errorMessage = error;
+        console.error(`Error: ${error}`);
+      }
+    );
   }
 }

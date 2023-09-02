@@ -1,7 +1,9 @@
 // external modules
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
 // internal services & models
 import { User } from '../models/Users';
 
@@ -19,7 +21,9 @@ export class UserService {
   registerUser(user: User): Observable<any> {
     const headers = { 'Content-Type': 'application/json' };
     console.log(`Registring user ${JSON.stringify(user)}`);
-    return this.http.post('http://localhost:3000/users', user, { headers });
+    return this.http
+      .post('http://localhost:3000/users', user, { headers })
+      .pipe(catchError(this.handleError));
   }
 
   // send
@@ -67,13 +71,25 @@ export class UserService {
 
   //getUserData(): Observable<any> {
   getUserData(token: string): void {
-    const headers = { 'Content-Type': 'application/json' };
-    console.log(`2 decoded token: ${token}`);
-    const decodedToken = this.decodeJwt(token);
-    console.log(`4 decoded token: ${decodedToken}`);
+    //const headers = { 'Content-Type': 'application/json' };
+    //const decodedToken = this.decodeJwt(token);
     /*return this.http.post('http://localhost:3000/users', this.user, {
         headers,
       });*/
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 409) {
+      // This is a conflict error.
+      return throwError(
+        () => new Error('User with this login already exists.')
+      );
+    } else {
+      // Handle other errors
+      return throwError(
+        () => new Error('An unknown error occurred. Please try again later.')
+      );
+    }
   }
 
   // decode JWT token
