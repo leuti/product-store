@@ -1,7 +1,7 @@
 // external modules
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription, count } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 // internal services & models
 import { UserService } from '../services/user.service';

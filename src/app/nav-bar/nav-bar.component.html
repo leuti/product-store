@@ -3,9 +3,9 @@
   <div class="centered-buttons">
     <button class="nav-button" routerLink="/">Products List</button>
     <br />
-    <button class="nav-button" routerLink="/cart">
+    <button class="nav-button" routerLink="/cart" style="color: black">
       Shopping Cart<span *ngIf="cartCount > 0">{{
-        " " + cartCount + " items"
+        " [" + cartCount + "]"
       }}</span>
     </button>
     <br />
