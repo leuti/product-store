@@ -65,6 +65,19 @@ h1 {
   background-color: #0056b3;
 }
 
+/* Styles for disabled button */
+input[type="submit"]:disabled {
+  background-color: #cccccc; /* Gray color */
+  color: #666666; /* Slightly darker gray for text */
+  border: 1px solid #999999; /* Gray border */
+  cursor: not-allowed; /* Indicate that the button can't be clicked */
+}
+
+/* Optional: If you want to provide some hover feedback, even though the button is disabled */
+input[type="submit"]:disabled:hover {
+  background-color: #b5b5b5;
+}
+
 .error-message {
   color: #ff4d4d;
   margin-top: 15px;

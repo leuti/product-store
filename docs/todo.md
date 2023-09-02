@@ -4,7 +4,6 @@
 
 - MUST: Document code
 - MUST: Write README.md
-- remove alers
 - remove console logs
 - all buttons should be grayed out if form not valid
 
@@ -18,16 +17,19 @@
 ## Products
 
 - 2 quantity field as drop down
-- 2 Form validation for quantity
+- BUG: When I enter a number into the quantity field and press the Add to Cart Button again, 1 is added to the end of the number (no addition)
+- BUG: I can add non numbers to quantity. Ensure that only digits can be added
 - 3 Button to reduce quantities
 - Expand text if requested
 
 ## ProductDetails
 
 - 2 Link "back to product list"
+- BUG: I can add non numbers to quantity. Ensure that only digits can be added
 
 ## Cart
 
+- BUG: I have items in my cart. I press the Clear Cart button. I would expect the Clear Button to disappear as the countItems var should be 0
 - 2 display "Cart empty" if nothing is in cart
 - 3 total price --> rounding
 - 3 +/- to adjust quantities

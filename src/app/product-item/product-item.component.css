@@ -69,3 +69,7 @@ input[type="text"] {
 input::placeholder {
   color: #aaa;
 }
+
+.clickable-item {
+  cursor: pointer;
+}

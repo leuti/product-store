@@ -1,4 +1,4 @@
-<div (click)="productClicked()" class="prodItem">
+<div (click)="productClicked()" class="prodItem clickable-item">
   <h3>{{ product.title }}</h3>
   <img
     src="http://localhost:3000/img/images?filename={{
@@ -16,7 +16,10 @@
     [(ngModel)]="product.quantity"
   />
 
-  <button class="btn btn-primary" (click)="addToCart(product)">
+  <button
+    class="btn btn-primary"
+    (click)="addToCart(product); $event.stopPropagation()"
+  >
     Add to Cart
   </button>
 </div>
