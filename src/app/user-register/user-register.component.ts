@@ -32,7 +32,6 @@ export class UserRegisterComponent implements OnInit {
     // register user
     this.userService.registerUser(user).subscribe({
       next: (res) => {
-        console.log(`register - API result: ${JSON.stringify(res)}`);
         if (res && res.message) this.token = res;
         this.userService.storeToken(this.token); // store token in localStorage
         this.userService.setUserData(this.token); // store user data in localStorage

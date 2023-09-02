@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkTokenAtStartup();
-    console.log(`checkTokenAtStartup triggered`);
   }
 
   private checkTokenAtStartup(): void {
@@ -23,7 +22,6 @@ export class AppComponent implements OnInit {
     if (user) {
       // TASK authenticate user with token
       this.userService.setUserLoggedIn(true);
-      console.log(`localStorage checked: token found`);
     }
   }
 }

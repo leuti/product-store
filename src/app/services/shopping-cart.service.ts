@@ -49,11 +49,9 @@ export class ShoppingCartService {
 
   setOrderSuccess(fullName: string, totalPrice: number): void {
     this.orderDetails = { fullName, totalPrice };
-    console.log(`Order details set: ${JSON.stringify(this.orderDetails)}`);
   }
 
   getOrderSuccess(): OrderDetails {
-    console.log(`Get Order details: ${JSON.stringify(this.orderDetails)}`);
     return this.orderDetails;
   }
 }

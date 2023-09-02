@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { UserService } from '../services/user.service';
 import { CartItem } from '../models/CartItem';
+import { User } from '../models/Users';
 
 @Component({
   selector: 'app-address',
@@ -18,6 +19,14 @@ export class AddressComponent implements OnInit {
   address: string = '';
   cardNumber: string = '';
   userLoggedIn: boolean = false;
+  user: User | null = {
+    login: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    token: '',
+  };
 
   constructor(
     private router: Router,
@@ -28,7 +37,8 @@ export class AddressComponent implements OnInit {
   ngOnInit(): void {
     this.cartItems = this.shoppingCartService.getCartContent(); // get current cartItems
     this.userLoggedIn = this.userService.getUserLoggedIn();
-    //this.fullName = this.userService.getUserData();
+    this.user = this.userService.getUserData();
+    this.fullName = this.user?.firstName + '' + this.user?.lastName;
   }
 
   // Data for order checkout (success) is collected and view opened
@@ -42,10 +52,6 @@ export class AddressComponent implements OnInit {
 
   getUserLoggedIn() {
     this.userLoggedIn = this.userService.getUserLoggedIn();
-  }
-
-  getUserData() {
-    //this.fullName = this.userService.getUserData();
   }
 
   register() {

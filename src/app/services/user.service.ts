@@ -22,7 +22,7 @@ export class UserService {
   // send user to API and register
   registerUser(user: User): Observable<any> {
     const headers = { 'Content-Type': 'application/json' };
-    console.log(`Registring user ${JSON.stringify(user)}`);
+
     return this.http
       .post('http://localhost:3000/users', user, { headers })
       .pipe(catchError(this.handleError));
@@ -49,7 +49,6 @@ export class UserService {
   storeToken(token: string) {
     localStorage.setItem('token', JSON.stringify(token)); // store token in localStorage
     this.userLoggedIn = true; // Inform user service that user is loggedIn
-    console.log(`1 token stored: ${JSON.stringify(token)}`);
   }
 
   setUserLoggedIn(state: boolean): void {
@@ -61,7 +60,6 @@ export class UserService {
   }
 
   setUserData(token: string): void {
-    console.log(`setUserData reached with ${token}`);
     const decodedToken = this.decodeJwt(token);
     const user: User = {
       id: decodedToken?.payload.id,
@@ -74,7 +72,14 @@ export class UserService {
     };
     localStorage.setItem('user', JSON.stringify(user)); // store token in localStorage
     this.userLoggedIn = true; // Inform user service that user is loggedIn
-    console.log(`1 token stored: ${JSON.stringify(user)}`);
+  }
+
+  getUserData(): User | null {
+    const userString: string | null = localStorage.getItem('user'); // user from localStorage
+    if (userString && userString !== null) {
+      return JSON.parse(userString);
+    }
+    return null; // Explicitly return null if userString is null
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -93,26 +98,14 @@ export class UserService {
 
   // decode JWT token
   decodeJwt(token: string) {
-    console.log(`2 decodeJwt function --> token: ${token}`);
     let parts = token.split('.');
-
-    console.log(`Number of parts: ${parts.length}`);
-    for (let i = 0; i++; i < parts.length) {
-      console.log(`part ${parts[i]}: ${JSON.stringify(parts[i])}`);
-    }
 
     // Check if the token structure is valid
     if (parts.length !== 3) {
       return null;
-    } else {
-      console.log(`++++++++++++++++++++++++++++++++++++++++++++++++`);
     }
-    console.log('******************Noch drin**********************');
     let header = this.base64UrlDecode(parts[0]);
     let payload = this.base64UrlDecode(parts[1]);
-
-    console.log(`                   --> header: ${header}`);
-    console.log(`                   --> payload: ${payload}`);
 
     return {
       header: JSON.parse(header),
@@ -121,7 +114,7 @@ export class UserService {
   }
 
   // proposed by ChatGPT
-  base64UrlDecode(input: string): string {
+  private base64UrlDecode(input: string): string {
     // Replace URL-safe characters with regular base64 characters
     let base64 = input.replace('-', '+').replace('_', '/');
 
