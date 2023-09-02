@@ -1,6 +1,7 @@
 // external modules
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 // internal services & models
 import { UserService } from '../services/user.service';
@@ -10,16 +11,26 @@ import { UserService } from '../services/user.service';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css'],
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit, OnDestroy {
   userLoggedIn: boolean = false;
+  private subscription: Subscription = new Subscription();
+
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    this.userLoggedIn = this.userService.getUserLoggedIn();
+    this.subscription = this.userService.userLoggedIn$.subscribe(
+      (value: boolean) => {
+        this.userLoggedIn = value;
+      }
+    );
   }
 
   logoffUser() {
     this.userService.logoffUser();
     this.router.navigate(['']);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

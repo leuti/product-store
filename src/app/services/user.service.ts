@@ -1,6 +1,6 @@
 // external modules
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
@@ -14,6 +14,8 @@ export class UserService {
   userLoggedIn: boolean = false;
   fullname: string = '';
   token: string = '';
+  private userLoggedInSubject = new BehaviorSubject<boolean>(false); // proposed by ChatGPT
+  public userLoggedIn$ = this.userLoggedInSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -51,11 +53,11 @@ export class UserService {
   }
 
   setUserLoggedIn(state: boolean): void {
-    this.userLoggedIn = state;
+    this.userLoggedInSubject.next(state);
   }
 
   getUserLoggedIn(): boolean {
-    return this.userLoggedIn;
+    return this.userLoggedInSubject.value;
   }
 
   setUserData(token: string): void {
