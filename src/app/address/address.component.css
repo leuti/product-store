@@ -1,14 +1,63 @@
+/* Shared Styling for all components */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  cursor: pointer;
+  color: #2c3e50; /* Dark blue color */
+  background-color: #ecf0f1; /* Off-white color */
+}
+
+button:hover {
+  background-color: #bdc3c7; /* Light gray for hover effect */
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Button Container */
 .button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #ddccca; /* Red-ish color for contrast */
+  padding: 20px;
+  border-radius: 4px;
+  color: #ecf0f1;
+  text-align: center;
+}
+
+.button-container p {
+  color: black;
 }
 
 .center-buttons {
   display: flex;
   justify-content: center;
+  gap: 20px;
 }
 
-.center-buttons button {
-  margin: 0 10px; /* Adjusts space between the buttons */
+/* Form Styling */
+form {
+  background-color: #f7f9fa; /* Lighter gray to separate the form */
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+h3 {
+  font-size: 20px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 10px;
+  color: #7f8c8d; /* Dark grayish-blue for some contrast */
 }

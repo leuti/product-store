@@ -1,21 +1,73 @@
-.register-container {
+.centered-content {
   display: flex;
-  align-items: center; /* Vertically align items if they have different heights */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f7f9fc;
 }
 
-.error-message {
-  flex: 1; /* Allow error message to take up all available space */
-  color: red; /* Assuming you want the error in red; adjust as needed */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  width: 450px; /* Slightly wider to accommodate the labels and inputs */
+}
+
+h1 {
+  margin-bottom: 25px;
+  color: #333;
 }
 
 .input-group {
   display: flex;
-  align-items: center; /* Vertically centers items if their heights differ */
-  margin-bottom: 10px; /* Optional: Adds some spacing between each input group */
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
 .input-group p {
-  margin-right: 10px; /* Adds some spacing between the label and the input */
-  width: 100px; /* This ensures that the <p> tags have a consistent width */
-  text-align: right; /* Aligns the text to the right so it looks neat next to the input */
+  margin-right: 20px;
+  color: #555;
+  width: 100px;
+}
+
+.input-group input {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background: #f0f2f5;
+  font-size: 16px;
+  flex: 1; /* Ensures the input takes up the remaining space in the flex container */
+  transition: background-color 0.3s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  background: #e5e8ed;
+}
+
+.register-form input[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center; /* Center the button in the form */
+}
+
+.register-form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: #ff4d4d;
+  margin-top: 15px;
+  font-weight: bold;
+  align-self: center; /* Center the error message in the form */
 }

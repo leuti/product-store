@@ -1,15 +1,38 @@
 .centered-content {
   display: flex;
-  flex-direction: column; /* Ensure h1 is on top and content-wrapper below */
-  align-items: flex-start; /* Align children to the top */
-  position: relative; /* For the positioning of child elements if needed */
-  margin: 20px 20px 20px 20px;
+  flex-direction: column;
+  align-items: center; /* Center its children horizontally */
+  width: 100%;
+  max-width: 1200px; /* Assuming you don't want it to stretch infinitely */
+  margin: 0 auto; /* Center the entire block on the page */
+  padding: 20px; /* Some space around the edges */
+  box-sizing: border-box; /* Makes sure padding doesn't increase total width */
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .productList {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* This creates three equally wide columns */
-  gap: 10px; /* This is the gap between the grid items */
-  align-items: center;
-  justify-items: center;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* This creates a responsive grid */
+  gap: 20px; /* Spacing between product items */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Adding some general resets for the margins and paddings of the elements */
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
 }

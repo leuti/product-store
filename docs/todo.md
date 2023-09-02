@@ -19,6 +19,7 @@
 - 2 quantity field as drop down
 - 2 Form validation for quantity
 - 3 Button to reduce quantities
+- Expand text if requested
 
 ## ProductDetails
 
@@ -46,6 +47,8 @@
 ### Login component
 
 ### Register component
+
+- After first register click, the user is added to the DB, but the route is not changing to cart
 
 ### Authentication
 

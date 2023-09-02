@@ -1,19 +1,62 @@
+/* General Styles */
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* viewport height - centers the form in the middle of the screen */
+  background: #f7f9fc; /* light grayish-blue background */
+}
+
 .centered-content form {
   display: flex;
   flex-direction: column;
-  align-items: start; /* Ensures the elements align to the left */
+  align-items: start;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* subtle shadow */
+  background: #ffffff;
+  width: 300px;
+}
+
+.centered-content h1 {
+  margin-bottom: 25px;
+  color: #333; /* dark text for contrast */
 }
 
 .centered-content input[type="text"],
 .centered-content input[type="password"] {
-  margin-bottom: 15px; /* Adds spacing between input fields */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background: #f0f2f5; /* light background to differentiate from white form background */
+  margin-bottom: 15px;
+  font-size: 16px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.centered-content input[type="text"]:focus,
+.centered-content input[type="password"]:focus {
+  outline: none;
+  background: #e5e8ed; /* slightly darker on focus for feedback */
 }
 
 .centered-content input[type="submit"] {
-  margin-top: 20px; /* Adds spacing above the submit button */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.centered-content input[type="submit"]:hover {
+  background-color: #0056b3; /* darker shade of blue */
 }
 
 .error-message {
-  flex: 1; /* Allow error message to take up all available space */
-  color: red; /* Assuming you want the error in red; adjust as needed */
+  color: #ff4d4d; /* Red for error messages */
+  margin-top: 15px;
+  font-weight: bold;
 }

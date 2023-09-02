@@ -7,8 +7,7 @@
   />
   <p class="prodDescription">{{ product.description }}</p>
   <p>Price {{ product.price }}</p>
-</div>
-<div class="prodItem">
+
   <input
     type="text"
     pattern="\d"
@@ -16,14 +15,8 @@
     placeholder="enter number (1-999)"
     [(ngModel)]="product.quantity"
   />
-  <br />
 
-  <button
-    class="btn btn-primary"
-    style="margin-right: 10px"
-    (click)="addToCart(product)"
-  >
+  <button class="btn btn-primary" (click)="addToCart(product)">
     Add to Cart
   </button>
-  <br />
 </div>
