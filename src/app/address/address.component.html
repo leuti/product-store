@@ -5,7 +5,7 @@
     <button style="margin-left: 20px" (click)="register()">Register</button>
     <button style="margin-left: 20px" (click)="login()">Log-in</button>
   </div>
-  <form *ngIf="userLoggedIn">
+  <form #form="ngForm" *ngIf="userLoggedIn">
     <h3>Your Address</h3>
     <p>Please complete missing data</p>
     <br />
@@ -13,6 +13,9 @@
     <input
       type="text"
       name="fullname"
+      required
+      minlength="3"
+      maxlength="50"
       placeholder="(minimum 3 characters)"
       [(ngModel)]="fullName"
     />
@@ -20,6 +23,9 @@
     <input
       type="text"
       name="address"
+      required
+      minlength="6"
+      maxlength="255"
       placeholder="(minimum 6 characters)"
       [(ngModel)]="address"
     />
@@ -27,9 +33,18 @@
     <input
       type="text"
       name="cardnumber"
+      required
+      pattern="\d{16}"
+      minlength="16"
+      maxlength="16"
       placeholder="(16-digit number)"
       [(ngModel)]="cardNumber"
     />
-    <button style="margin-left: 20px" (click)="submitOrder()">Submit</button>
+    <input
+      type="submit"
+      [disabled]="form.invalid"
+      style="margin-left: 20px"
+      (click)="submitOrder()"
+    />
   </form>
 </div>

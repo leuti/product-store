@@ -1,12 +1,15 @@
 # TO DO's
 
+## General
+
+- Document code
+- Write README.md
+
 ## API
 
 ## NavBar
 
 - 2 Cart button is inactive when cart is empty
-- 2 Layout
-- 2 Logout button
 - 2 Icon Cart (with number of products in cart) --> 🛒 [3]
 
 ## Products
@@ -22,7 +25,6 @@
 ## Cart
 
 - 2 remove product button from cart
-- 2 move setOrderSuccess & getOrderSuccess function to
 - 2 display "Cart empty" if nothing is in cart
 - 3 total price --> rounding
 - 3 +/- to adjust quantities
@@ -40,12 +42,7 @@
 
 ### User service
 
-- Logoff function
-
 ### 1 Login component
-
-- 1 setUserLoggedIn = true
-- 1 Ensure that login is unique
 
 ### 1 Register component
 
@@ -60,3 +57,7 @@
 
 - Implement token Rotation
 - set base64UrlDecode and more to private
+
+### My-Order-Component
+
+- New component

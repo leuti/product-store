@@ -1,10 +1,13 @@
 <div class="centered-content">
-  <form class="register-form">
+  <form #form="ngForm" class="register-form">
     <h3>Register to Shop</h3>
     <p>Login</p>
     <input
       type="text"
       name="login"
+      required
+      minlength="3"
+      maxlength="20"
       placeholder="(minimum 3 characters)"
       [(ngModel)]="user.login"
     />
@@ -12,6 +15,9 @@
     <input
       type="password"
       name="password"
+      required
+      minlength="6"
+      maxlength="50"
       placeholder="(minimum 6 characters)"
       [(ngModel)]="user.password"
     />
@@ -19,6 +25,9 @@
     <input
       type="text"
       name="firstName"
+      required
+      minlength="6"
+      maxlength="50"
       placeholder="(minimum 6 characters)"
       [(ngModel)]="user.firstName"
     />
@@ -26,6 +35,9 @@
     <input
       type="text"
       name="lastName"
+      required
+      minlength="6"
+      maxlength="50"
       placeholder="(minimum 6 characters)"
       [(ngModel)]="user.lastName"
     />
@@ -33,6 +45,9 @@
     <input
       type="text"
       name="email"
+      required
+      minlength="3"
+      maxlength="50"
       placeholder="E-Mail"
       [(ngModel)]="user.email"
     />
