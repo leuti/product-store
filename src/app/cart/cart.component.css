@@ -1,5 +1,29 @@
-.cartMain {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* This creates three equally wide columns */
-  gap: 20px; /* This is the gap between the grid items */
+.centered-content {
+  display: flex;
+  flex-direction: column; /* Ensure h1 is on top and content-wrapper below */
+  align-items: flex-start; /* Align children to the top */
+  position: relative; /* For the positioning of child elements if needed */
+  margin: 20px 20px 20px 20px;
+}
+
+.content-wrapper {
+  display: flex; /* Ensures the cart and address are side by side */
+  width: 100%; /* Ensures full width of parent */
+}
+
+.cart-container {
+  flex: 1; /* Take up half of the parent container */
+  position: relative; /* For positioning .total-price */
+  margin-left: 30px;
+  padding-bottom: 40px; /* Make space at the bottom for the .total-price. Adjust if needed */
+}
+
+.address {
+  flex: 1; /* Take up the remaining half of the parent container */
+}
+
+.total-price {
+  position: absolute;
+  bottom: 0; /* Place at bottom of .cart-container */
+  left: 0; /* Align to left */
 }

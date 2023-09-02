@@ -1,3 +1,11 @@
+.centered-content {
+  display: flex;
+  flex-direction: column; /* Ensure h1 is on top and content-wrapper below */
+  align-items: flex-start; /* Align children to the top */
+  position: relative; /* For the positioning of child elements if needed */
+  margin: 20px 20px 20px 20px;
+}
+
 .productList {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; /* This creates three equally wide columns */

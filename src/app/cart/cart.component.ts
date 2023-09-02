@@ -1,5 +1,7 @@
 // external modules
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
 // internal services & models
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { CartItem } from '../models/CartItem';
@@ -13,11 +15,19 @@ export class CartComponent implements OnInit {
   title: string = 'Your Shopping Cart';
   cartItems: CartItem[] = [];
   totalPrice: number = 0;
+  cartCount: number = 0;
+  private cartSubscription: Subscription = new Subscription();
 
   constructor(private shoppingCartService: ShoppingCartService) {}
 
   ngOnInit(): void {
     this.cartItems = this.shoppingCartService.getCartContent(); // get cart content
+
+    this.cartSubscription = this.shoppingCartService.cartItemsCount$.subscribe(
+      (count) => {
+        this.cartCount = count;
+      }
+    );
   }
 
   // compute total price of the cart (ACTION: move to shoppingCartServices)
@@ -38,6 +48,5 @@ export class CartComponent implements OnInit {
   clearCart() {
     this.shoppingCartService.clearCart();
     this.cartItems = [];
-    alert('Cart cleared.');
   }
 }

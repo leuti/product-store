@@ -4,6 +4,8 @@
 
 - MUST: Document code
 - MUST: Write README.md
+- remove alers
+- remove console logs
 
 ## API
 

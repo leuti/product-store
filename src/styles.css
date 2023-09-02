@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+h1 {
+  margin-bottom: 50px;
+}
 .centered-content {
   display: grid;
   place-items: center; /* shorthand for align-items and justify-items */
