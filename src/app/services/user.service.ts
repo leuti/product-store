@@ -38,6 +38,12 @@ export class UserService {
     );
   }
 
+  logoffUser(): void {
+    localStorage.setItem('token', '');
+    localStorage.setItem('user', '');
+    this.setUserLoggedIn(false);
+  }
+
   storeToken(token: string) {
     localStorage.setItem('token', JSON.stringify(token)); // store token in localStorage
     this.userLoggedIn = true; // Inform user service that user is loggedIn
@@ -67,15 +73,6 @@ export class UserService {
     localStorage.setItem('user', JSON.stringify(user)); // store token in localStorage
     this.userLoggedIn = true; // Inform user service that user is loggedIn
     console.log(`1 token stored: ${JSON.stringify(user)}`);
-  }
-
-  //getUserData(): Observable<any> {
-  getUserData(token: string): void {
-    //const headers = { 'Content-Type': 'application/json' };
-    //const decodedToken = this.decodeJwt(token);
-    /*return this.http.post('http://localhost:3000/users', this.user, {
-        headers,
-      });*/
   }
 
   private handleError(error: HttpErrorResponse) {

@@ -1,5 +1,16 @@
 <div class="navigation">
-  <a routerLink="/">Products List</a>
-  <br />
-  <a routerLink="/cart">Shopping Cart</a>
+  <div class="header">Product Store</div>
+  <div class="centered-buttons">
+    <button class="nav-button" routerLink="/">Products List</button>
+    <br />
+    <button class="nav-button" routerLink="/cart">Shopping Cart</button>
+    <br />
+  </div>
+  <button
+    *ngIf="userLoggedIn"
+    class="nav-button nav-button-right"
+    (click)="logoffUser()"
+  >
+    Log-off
+  </button>
 </div>

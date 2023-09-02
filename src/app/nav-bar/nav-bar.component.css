@@ -1,13 +1,47 @@
 .navigation {
+  position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between; /* Distributes the three children evenly */
+  align-items: center; /* Align vertically */
+  width: 100%; /* Ensure the container spans the full width of its parent. */
   text-align: left;
   background: #33b5e5;
-  padding: 20px 200px 20px 200px;
+  padding: 20px 200px 20px 20px;
+  margin: 5px 0;
+  transition: background-color 0.3s;
+  /* from GPT */
+  /* background-color: #f8f8f8; 
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer; */
 }
 
-a {
-  color: #ffffff;
+.nav-button {
+  background: #33b5e5;
+  border: 1px solid white;
+  padding: 10px 0px 10px, 0px;
+  border-radius: 5px;
   font-weight: bold;
+}
+
+.centered-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Space between the buttons. */
+}
+
+.nav-button-right {
+  position: absolute;
+  right: 50px; /* Aligns the button to the right corner. */
+}
+
+.navigation button:hover {
+  background-color: #6ce7de; /* slightly darker gray */
+}
+
+.header {
+  font-size: 24px; /* Adjust as per your requirement */
+  font-weight: bold;
+  padding-left: 10px;
 }
