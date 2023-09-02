@@ -20,6 +20,7 @@
 
 .address {
   flex: 1; /* Take up the remaining half of the parent container */
+  justify-content: center; /* For horizontal centering */
 }
 
 .total-price {

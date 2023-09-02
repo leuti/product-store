@@ -2,4 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr; /* This creates three equally wide columns */
   gap: 20px; /* This is the gap between the grid items */
+  padding: 10px;
+  margin: 20px;
+  border: 1px solid #ccc;
 }

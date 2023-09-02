@@ -1,9 +1,11 @@
 <div>
-  <div *ngIf="!userLoggedIn">
-    <h4>Please register or login before the order can be submitted</h4>
+  <div *ngIf="!userLoggedIn" class="button-container">
+    <p>Please register or login before the order can be submitted</p>
     <br />
-    <button style="margin-left: 20px" (click)="register()">Register</button>
-    <button style="margin-left: 20px" (click)="login()">Log-in</button>
+    <div class="center-buttons">
+      <button style="margin-left: 20px" (click)="register()">Register</button>
+      <button style="margin-left: 20px" (click)="login()">Log-in</button>
+    </div>
   </div>
   <form (ngSubmit)="submitOrder()" #form="ngForm" *ngIf="userLoggedIn">
     <h3>Your Address</h3>

@@ -7,3 +7,15 @@
   flex: 1; /* Allow error message to take up all available space */
   color: red; /* Assuming you want the error in red; adjust as needed */
 }
+
+.input-group {
+  display: flex;
+  align-items: center; /* Vertically centers items if their heights differ */
+  margin-bottom: 10px; /* Optional: Adds some spacing between each input group */
+}
+
+.input-group p {
+  margin-right: 10px; /* Adds some spacing between the label and the input */
+  width: 100px; /* This ensures that the <p> tags have a consistent width */
+  text-align: right; /* Aligns the text to the right so it looks neat next to the input */
+}
