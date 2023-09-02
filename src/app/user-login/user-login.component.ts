@@ -34,7 +34,7 @@ export class UserLoginComponent implements OnInit {
       this.token = res;
       this.userService.storeToken(this.token); // store token in localStorage
       this.userService.setUserData(this.token); // get and store user data in localStorage
-      console.log(`User authenticated: ${JSON.stringify(this.user)}`);
+      this.userService.setUserLoggedIn(true); // user has logged in
       this.router.navigate(['cart']); // navigate to cart
     });
   }

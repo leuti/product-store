@@ -16,7 +16,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   // send user to API and register
-  register(user: User): Observable<any> {
+  registerUser(user: User): Observable<any> {
     const headers = { 'Content-Type': 'application/json' };
     console.log(`Registring user ${JSON.stringify(user)}`);
     return this.http.post('http://localhost:3000/users', user, { headers });
@@ -40,10 +40,8 @@ export class UserService {
     console.log(`1 token stored: ${JSON.stringify(token)}`);
   }
 
-  storeUser(user: User) {}
-
-  setUserLoggedIn(): void {
-    this.userLoggedIn = true;
+  setUserLoggedIn(state: boolean): void {
+    this.userLoggedIn = state;
   }
 
   getUserLoggedIn(): boolean {
