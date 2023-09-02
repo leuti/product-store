@@ -1,5 +1,18 @@
 <div class="centered-content">
-  <form #form="ngForm" class="register-form">
+  <form
+    (ngSubmit)="
+      register({
+        login: user.login,
+        password: user.password,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        token: user.token
+      })
+    "
+    #form="ngForm"
+    class="register-form"
+  >
     <h3>Register to Shop</h3>
     <p>Login</p>
     <input
@@ -52,21 +65,11 @@
       [(ngModel)]="user.email"
     />
     <div class="register-container">
-      <button
+      <input
+        type="submit"
+        [disabled]="form.invalid"
         style="margin-left: 20px"
-        (click)="
-          register({
-            login: user.login,
-            password: user.password,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
-            token: user.token
-          })
-        "
-      >
-        Register
-      </button>
+      />
 
       <div *ngIf="errorMessage" class="error-message">
         {{ errorMessage }}

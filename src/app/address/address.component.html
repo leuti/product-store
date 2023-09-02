@@ -5,7 +5,7 @@
     <button style="margin-left: 20px" (click)="register()">Register</button>
     <button style="margin-left: 20px" (click)="login()">Log-in</button>
   </div>
-  <form #form="ngForm" *ngIf="userLoggedIn">
+  <form (ngSubmit)="submitOrder()" #form="ngForm" *ngIf="userLoggedIn">
     <h3>Your Address</h3>
     <p>Please complete missing data</p>
     <br />
@@ -40,11 +40,6 @@
       placeholder="(16-digit number)"
       [(ngModel)]="cardNumber"
     />
-    <input
-      type="submit"
-      [disabled]="form.invalid"
-      style="margin-left: 20px"
-      (click)="submitOrder()"
-    />
+    <input type="submit" [disabled]="form.invalid" style="margin-left: 20px" />
   </form>
 </div>

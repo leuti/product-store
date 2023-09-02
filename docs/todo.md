@@ -2,8 +2,8 @@
 
 ## General
 
-- Document code
-- Write README.md
+- MUST: Document code
+- MUST: Write README.md
 
 ## API
 
@@ -24,7 +24,6 @@
 
 ## Cart
 
-- 2 remove product button from cart
 - 2 display "Cart empty" if nothing is in cart
 - 3 total price --> rounding
 - 3 +/- to adjust quantities
@@ -36,27 +35,23 @@
 
 ## Address component
 
-- Vadate form data
+- Defect: Fullname not displayed
 
 ## Login
 
 ### User service
 
-### 1 Login component
+### Login component
 
-### 1 Register component
+### Register component
 
 ### Authentication
 
-- Register: Error handling in case login already exists
 - Authentication: Check if expired toakens (if implemented)
 - checkTokenAtStartup: authenticate user with token
-
 - Switch to HttpOnly Cookies (see ChatGPT chat "Angular")
 - Switch to https (see ChatGPT chat "Angular")
-
 - Implement token Rotation
-- set base64UrlDecode and more to private
 
 ### My-Order-Component
 

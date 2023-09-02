@@ -31,13 +31,16 @@ export class UserService {
   // send
   loginUser(login: string, password: string): Observable<any> {
     const headers = { 'Content-Type': 'application/json' };
-    return this.http.post(
-      'http://localhost:3000/users/authenticate',
-      { login, password },
-      {
-        headers,
-      }
-    );
+
+    return this.http
+      .post(
+        'http://localhost:3000/users/authenticate',
+        { login, password },
+        {
+          headers,
+        }
+      )
+      .pipe(catchError(this.handleError));
   }
 
   logoffUser(): void {
@@ -88,6 +91,9 @@ export class UserService {
       return throwError(
         () => new Error('User with this login already exists.')
       );
+    } else if (error.status === 401) {
+      // Handle other errors
+      return throwError(() => new Error('Login failed.'));
     } else {
       // Handle other errors
       return throwError(

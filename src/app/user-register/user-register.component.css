@@ -1,6 +1,3 @@
-.register-form {
-}
-
 .register-container {
   display: flex;
   align-items: center; /* Vertically align items if they have different heights */
