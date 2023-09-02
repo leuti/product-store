@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     const user = localStorage.getItem('user');
     if (user) {
       // TASK authenticate user with token
-      this.userService.setUserLoggedIn();
+      this.userService.setUserLoggedIn(true);
       console.log(`localStorage checked: token found`);
     }
   }
