@@ -1,14 +1,32 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f7f9fc;
+  margin: 0;
+  padding: 0;
+}
+
 .product-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+h3 {
+  margin-bottom: 15px;
+  color: #333;
 }
 
 .product-image {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin: 50px;
 }
 
 .product-image img {
@@ -19,20 +37,13 @@
 .prodDetail {
   display: flex;
   flex-direction: column; /* Ensures items are displayed in a vertical column */
-  align-items: flex-start;
+  align-items: center;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
   background: #ffffff;
   width: 60%; /* You can adjust this width as per your requirements */
   margin: 0 auto; /* Centers the content horizontally if placed inside a flex container */
-}
-
-.prodDetail h1,
-.prodDetail h2,
-.prodDetail p {
-  font-size: 16px;
-  margin-bottom: 20px;
 }
 
 .prodDetail .quantity-control {
@@ -46,23 +57,11 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.prodDetail .btn.btn-primary {
+.btn-empty,
+.btn-selected {
   display: block; /* Ensure the button is treated as a block-level element */
   margin: 20px auto 0; /* Center the button horizontally and add a margin on top for spacing */
   text-align: center; /* This will center any text or inline content inside the button, though it's not strictly necessary here */
-}
-
-.prodDetail > * {
-  width: 100%; /* Ensures each direct child takes full width */
-  padding: 10px;
-  border: 1px solid #bdc3c7;
-  border-radius: 4px;
-  font-size: 16px;
-  margin-bottom: 10px; /* Adds some space between elements */
-}
-
-/* If you have any button elements */
-.prodDetail button {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
@@ -74,16 +73,9 @@
   width: fit-content; /* Ensures the button does not take full width */
 }
 
-.prodDetail button:hover {
+.btn-empty:hover,
+.btn-selected:hover {
   background-color: #0056b3; /* A slightly darker blue for hover */
-}
-
-/* To keep elements within a grid cell centered */
-.prodDetail > .centered-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
 }
 
 .btn-selected {
@@ -92,4 +84,34 @@
 
 .btn-selected:hover {
   background-color: green;
+}
+
+.qty-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 5px;
+  margin: 0;
+  width: 30px; /* equal width to make it look symmetrical */
+  height: 30px; /* equal height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* circular button */
+  background-color: grey;
+}
+
+.qty-btn:hover {
+  color: #007bff;
+  background-color: grey;
+}
+
+.qty-number {
+  font-size: 1.2em;
+  color: #555;
+  margin: 0 10px;
+  min-width: 20px;
+  text-align: center;
 }
