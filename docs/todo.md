@@ -14,9 +14,8 @@
 
 ## Products
 
-- LOOK: Make product list wider
 - CHANGE: Make quantity a closed field; add + and - button to change quantity. Ensure that quantity doesn't go below 0. Cart items previously added should be removed from cart if quantity is set to 0.
-- LOOK: Expand text if requested
+- CHANGE: Expand text if requested
 
 ## ProductDetails
 
@@ -29,6 +28,7 @@
 - BUG: When I clear the Cart, the item counter in NavBar is not reset
 - LOOK: total price --> round to 2 digits max
 - CHANGE: Add + and - button to change quantity
+- TECH: Implement OnDestroy
 
 ## Success page
 
