@@ -20,6 +20,7 @@
       maxlength="50"
       placeholder="(minimum 3 characters)"
       [(ngModel)]="fullName"
+      #fullNameInput="ngModel"
     />
     <p>Address</p>
     <input
@@ -30,6 +31,7 @@
       maxlength="255"
       placeholder="(minimum 6 characters)"
       [(ngModel)]="address"
+      #addressInput="ngModel"
     />
     <p>Credit Card Number</p>
     <input
@@ -41,7 +43,14 @@
       maxlength="16"
       placeholder="(16-digit number)"
       [(ngModel)]="cardNumber"
+      #cardNumberInput="ngModel"
     />
-    <input type="submit" [disabled]="form.invalid" style="margin-left: 20px" />
+    <input
+      type="submit"
+      [disabled]="
+        form.invalid || addressInput.pristine || cardNumberInput.pristine
+      "
+      value="Order Cart"
+    />
   </form>
 </div>

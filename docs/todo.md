@@ -32,8 +32,6 @@
 
 ## Success page
 
-- CHANGE: Implement return to product list button (incl. Styling of button)
-
 ## Address component
 
 - LOOK: Style Button (ensure validation is considered)

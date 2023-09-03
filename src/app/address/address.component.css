@@ -24,6 +24,33 @@ input[type="password"] {
   font-size: 16px;
 }
 
+/* Styles for disabled button */
+input[type="submit"]:disabled {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #cccccc;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:not(:disabled) {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3; /* A slightly darker blue for hover */
+}
+
 /* Button Container */
 .button-container {
   background-color: #ddccca; /* Red-ish color for contrast */
