@@ -5,44 +5,38 @@
 - MUST: Document code
 - MUST: Write README.md
 - remove console logs
-- all buttons should be grayed out if form not valid
 
 ## API
 
 ## NavBar
 
-- 2 Cart button is inactive when cart is empty
-- 2 Icon Cart (with number of products in cart) --> 🛒 [3]
+- LOOK: Cart button is inactive when cart is empty
 
 ## Products
 
-- Make product list wider
-- 2 quantity field as drop down
-- BUG: When I enter a number into the quantity field and press the Add to Cart Button again, 1 is added to the end of the number (no addition)
-- BUG: I can add non numbers to quantity. Ensure that only digits can be added
-- 3 Button to reduce quantities
-- Expand text if requested
+- LOOK: Make product list wider
+- CHANGE: Make quantity a closed field; add + and - button to change quantity. Ensure that quantity doesn't go below 0. Cart items previously added should be removed from cart if quantity is set to 0.
+- LOOK: Expand text if requested
 
 ## ProductDetails
 
-- 2 Link "back to product list"
-- BUG: I can add non numbers to quantity. Ensure that only digits can be added
+- CHANGE: Link "back to product list"
+- CHANGE: Make quantity a closed field; add + and - button to change quantity. Ensure that quantity doesn't go below 0. Cart items previously added should be removed from cart if quantity is set to 0.
 
 ## Cart
 
-- BUG: I have items in my cart. I press the Clear Cart button. I would expect the Clear Button to disappear as the countItems var should be 0
+- BUG: I have items in my cart. I press the Clear Cart button. I would expect the Clear Button to disappear, the "Cart is empty message to reappear"
 - BUG: When I clear the Cart, the item counter in NavBar is not reset
-- 3 total price --> rounding
-- 3 +/- to adjust quantities
+- LOOK: total price --> round to 2 digits max
+- CHANGE: Add + and - button to change quantity
 
 ## Success page
 
-- 2 Beautify
-- 2 Implement return to product list button
+- CHANGE: Implement return to product list button (incl. Styling of button)
 
 ## Address component
 
-- Defect: Fullname not displayed
+- LOOK: Style Button (ensure validation is considered)
 
 ## Login
 
@@ -51,8 +45,6 @@
 ### Login component
 
 ### Register component
-
-- After first register click, the user is added to the DB, but the route is not changing to cart
 
 ### Authentication
 
@@ -65,3 +57,7 @@
 ### My-Order-Component
 
 - New component
+
+## Known Issues
+
+-
