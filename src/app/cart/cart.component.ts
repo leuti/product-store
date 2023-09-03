@@ -13,8 +13,8 @@ import { CartItem } from '../models/CartItem';
 })
 export class CartComponent implements OnInit {
   title: string = 'Your Shopping Cart';
-  cartItems: CartItem[] = [];
   totalPrice: number = 0;
+  cartItems: CartItem[] = [];
   cartCount: number = 0;
   private cartSubscription: Subscription = new Subscription();
 
@@ -48,5 +48,6 @@ export class CartComponent implements OnInit {
   clearCart() {
     this.shoppingCartService.clearCart();
     this.cartItems = [];
+    this.cartCount = 0;
   }
 }

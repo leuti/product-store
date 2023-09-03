@@ -12,13 +12,13 @@ import { OrderDetails } from '../models/OrderDetails';
 })
 export class ShoppingCartService {
   cartItems: CartItem[] = [];
+  private cartItemsCount = new BehaviorSubject<number>(0); // Initialize with 0 items.
+  public cartItemsCount$: Observable<number> =
+    this.cartItemsCount.asObservable(); // Expose the observable for components to subscribe
   private orderDetails: OrderDetails = {
     fullName: '',
     totalPrice: 0,
   };
-  private cartItemsCount = new BehaviorSubject<number>(0); // Initialize with 0 items.
-  public cartItemsCount$: Observable<number> =
-    this.cartItemsCount.asObservable(); // Expose the observable for components to subscribe
 
   constructor() {}
 
@@ -50,14 +50,15 @@ export class ShoppingCartService {
     return this.cartItems;
   }
 
-  removeFromCart() {
+  removeFromCart(): void {
     const currentCount = this.cartItemsCount.value;
     this.cartItemsCount.next(currentCount - 1);
+    this.cartItems = [];
   }
 
-  clearCart() {
+  clearCart(): void {
     this.cartItems = [];
-    return this.cartItems;
+    this.cartItemsCount.next(0);
   }
 
   setOrderSuccess(fullName: string, totalPrice: number): void {

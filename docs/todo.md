@@ -34,8 +34,6 @@
 
 ## Address component
 
-- LOOK: Style Button (ensure validation is considered)
-
 ## Login
 
 ### User service
