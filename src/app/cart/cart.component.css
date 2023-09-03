@@ -32,10 +32,9 @@
 
 .cart-total-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: center; /* to align items vertically in the center, if needed */
+  gap: 50px; /* This will introduce a 20px gap between all direct children */
 }
-
 .clear-cart-btn {
   margin-left: 200px;
   padding: 10px 20px;

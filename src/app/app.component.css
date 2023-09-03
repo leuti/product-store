@@ -1,3 +1,24 @@
 .margins {
-  margin: 40px 0px 0px 40px;
+  /*margin: 40px 0px 0px 40px;*/
+  margin-top: 60px;
+}
+
+.fixed-navbar {
+  position: fixed;
+  top: 0; /* Align to the top of the viewport */
+  left: 0; /* Align to the left of the viewport */
+  width: 100%; /* Ensure it spans the full width of the viewport */
+  z-index: 1000; /* This ensures the navbar stays on top of other content */
+  margin-bottom: 100px;
+}
+
+.main-wrapper {
+  padding-top: 60px; /* Assuming your navbar's height is 60px */
+}
+
+app-nav-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100; /* this ensures the navbar stays on top of other content */
 }

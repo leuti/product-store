@@ -17,13 +17,8 @@
 ## ProductDetails
 
 - CHANGE: Link "back to product list"
-- CHANGE: Make quantity a closed field; add + and - button to change quantity. Ensure that quantity doesn't go below 0. Cart items previously added should be removed from cart if quantity is set to 0.
-- CHANGE: Add -/+ buttons
 
 ## Cart
-
-- LOOK: total price --> round to 2 digits max
-- CHANGE: Add + and - button to change quantity
 
 ## Success page
 
