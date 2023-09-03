@@ -30,6 +30,10 @@ export class CartComponent implements OnInit {
     );
   }
 
+  ngOnDestroy(): void {
+    this.cartSubscription.unsubscribe();
+  }
+
   // compute total price of the cart (ACTION: move to shoppingCartServices)
   getTotalPrice(): number {
     return this.cartItems.reduce(
