@@ -7,19 +7,34 @@
   />
   <p class="prodDescription">{{ product.description }}</p>
   <p>Price {{ product.price }}</p>
-
-  <input
-    type="text"
-    pattern="\d"
-    name="quantity"
-    placeholder="enter number (1-999)"
-    [(ngModel)]="product.quantity"
-  />
+  <div class="quantity-control">
+    <button
+      class="qty-btn"
+      (click)="decreaseQuantity(product); $event.stopPropagation()"
+    >
+      -
+    </button>
+    <span class="qty-number">{{ product.quantity }}</span>
+    <button
+      class="qty-btn"
+      (click)="increaseQuantity(product); $event.stopPropagation()"
+    >
+      +
+    </button>
+  </div>
 
   <button
-    class="btn btn-primary"
+    *ngIf="product.quantity == 0"
+    class="btn btn-primary btn-empty"
     (click)="addToCart(product); $event.stopPropagation()"
   >
     Add to Cart
+  </button>
+  <button
+    *ngIf="product.quantity > 0"
+    class="btn btn-primary btn-selected"
+    (click)="addToCart(product); $event.stopPropagation()"
+  >
+    Add to Cart (added)
   </button>
 </div>
