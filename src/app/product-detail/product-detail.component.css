@@ -1,7 +1,95 @@
-.prodDetail {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* This creates three equally wide columns */
-  gap: 10px; /* This is the gap between the grid items */
+.product-container {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-items: center;
+  width: 100%;
+}
+
+.product-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.product-image img {
+  max-width: 500px; /* Adjust this to whatever width you prefer */
+  width: 100%;
+}
+
+.prodDetail {
+  display: flex;
+  flex-direction: column; /* Ensures items are displayed in a vertical column */
+  align-items: flex-start;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  width: 60%; /* You can adjust this width as per your requirements */
+  margin: 0 auto; /* Centers the content horizontally if placed inside a flex container */
+}
+
+.prodDetail h1,
+.prodDetail h2,
+.prodDetail p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.prodDetail .quantity-control {
+  display: flex;
+  align-items: center; /* center items vertically */
+  justify-content: center; /* distribute items horizontally with space in between */
+  width: 100px; /* You can adjust this based on your requirements */
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  padding: 5px 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.prodDetail .btn.btn-primary {
+  display: block; /* Ensure the button is treated as a block-level element */
+  margin: 20px auto 0; /* Center the button horizontally and add a margin on top for spacing */
+  text-align: center; /* This will center any text or inline content inside the button, though it's not strictly necessary here */
+}
+
+.prodDetail > * {
+  width: 100%; /* Ensures each direct child takes full width */
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px; /* Adds some space between elements */
+}
+
+/* If you have any button elements */
+.prodDetail button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: fit-content; /* Ensures the button does not take full width */
+}
+
+.prodDetail button:hover {
+  background-color: #0056b3; /* A slightly darker blue for hover */
+}
+
+/* To keep elements within a grid cell centered */
+.prodDetail > .centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.btn-selected {
+  background-color: green;
+}
+
+.btn-selected:hover {
+  background-color: green;
 }
