@@ -50,7 +50,14 @@ export class ShoppingCartService {
     return this.cartItems;
   }
 
-  removeFromCart(): void {
+  removeFromCart(product: Product): void {
+    // get array index of cartItem
+    const cartIndex = this.cartItems.findIndex((prod) => prod.id == product.id);
+
+    // If the cartItem is is found, it is removed from the array
+    if (cartIndex !== -1) {
+      this.cartItems.splice(cartIndex, 1);
+    }
     const currentCount = this.cartItemsCount.value;
     this.cartItemsCount.next(currentCount - 1);
     this.cartItems = [];
