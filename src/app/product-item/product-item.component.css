@@ -5,7 +5,7 @@ body {
   padding: 0;
 }
 
-.prodItem {
+.product-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +17,7 @@ body {
   transition: transform 0.2s ease;
 }
 
-.prodItem:hover {
+.product-container:hover {
   transform: translateY(-5px);
 }
 
@@ -110,7 +110,7 @@ input[type="text"] {
   width: 100%;
 }
 
-.prodItem p {
+.product-container p {
   font-weight: bold;
   margin-bottom: 15px;
 }
