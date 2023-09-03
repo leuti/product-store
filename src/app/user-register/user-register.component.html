@@ -25,6 +25,7 @@
         maxlength="20"
         placeholder="(minimum 3 characters)"
         [(ngModel)]="user.login"
+        #loginInput="ngModel"
       />
     </div>
     <div class="input-group">
@@ -37,6 +38,7 @@
         maxlength="50"
         placeholder="(minimum 6 characters)"
         [(ngModel)]="user.password"
+        #passwordInput="ngModel"
       />
     </div>
     <div class="input-group">
@@ -49,6 +51,7 @@
         maxlength="50"
         placeholder="(minimum 6 characters)"
         [(ngModel)]="user.firstName"
+        #firstNameInput="ngModel"
       />
     </div>
     <div class="input-group">
@@ -61,6 +64,7 @@
         maxlength="50"
         placeholder="(minimum 6 characters)"
         [(ngModel)]="user.lastName"
+        #lastNameInput="ngModel"
       />
     </div>
     <div class="input-group">
@@ -73,13 +77,21 @@
         maxlength="50"
         placeholder="E-Mail"
         [(ngModel)]="user.email"
+        #emailInput="ngModel"
       />
     </div>
     <div class="register-container">
       <input
         type="submit"
-        [disabled]="form.invalid"
-        style="margin-left: 20px"
+        value="Register"
+        [disabled]="
+          form.invalid ||
+          loginInput.pristine ||
+          passwordInput.pristine ||
+          firstNameInput.pristine ||
+          lastNameInput.pristine ||
+          emailInput.pristine
+        "
       />
 
       <div *ngIf="errorMessage" class="error-message">

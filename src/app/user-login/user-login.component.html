@@ -13,6 +13,7 @@
         maxlength="20"
         placeholder="login"
         [(ngModel)]="login"
+        #loginInput="ngModel"
       />
     </div>
     <div class="input-group">
@@ -23,11 +24,20 @@
         maxlength="50"
         placeholder="password"
         [(ngModel)]="password"
+        #passwordInput="ngModel"
       />
     </div>
-    <input type="submit" [disabled]="form.invalid" style="margin-left: 20px" />
+    <div class="submit-container">
+      <input
+        type="submit"
+        value="Login"
+        [disabled]="
+          form.invalid || loginInput.pristine || passwordInput.pristine
+        "
+      />
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </div>
   </form>
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
-  </div>
 </div>
