@@ -2,23 +2,23 @@
   <h1>{{ title }}</h1>
   <div class="content-wrapper">
     <div class="cart-container">
+      <div *ngIf="cartCount == 0" class="empty-cart-message">
+        <p>Shopping Cart is empty</p>
+      </div>
+
       <div class="cart-items" *ngIf="cartCount > 0">
         <app-cart-item
           *ngFor="let cartItem of cartItems"
           [cartItem]="cartItem"
         ></app-cart-item>
-      </div>
-
-      <div *ngIf="cartCount == 0">
-        <p>Shopping Cart is empty</p>
-      </div>
-
-      <div class="cart-total-container">
-        <button class="clear-cart-btn" (click)="clearCart()">Clear Cart</button>
-        <p class="total-price">Total Price: ${{ getTotalPrice() }}</p>
+        <div class="cart-total-container">
+          <button class="clear-cart-btn" (click)="clearCart()">
+            Clear Cart
+          </button>
+          <p class="total-price">Total Price: ${{ getTotalPrice() }}</p>
+        </div>
       </div>
     </div>
-
     <div class="address">
       <app-address [getTotalPrice]="getTotalPrice"></app-address>
     </div>

@@ -61,3 +61,17 @@
   padding: 5px 0; /* Add a little vertical padding for spacing */
   margin-right: 200px; /* Right margin for spacing */
 }
+
+.empty-cart-message {
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  height: 200px; /* Give it a fixed height for better prominence */
+  background-color: #f5f5f5; /* Light background */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px; /* Rounded corners for aesthetics */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  font-size: 1.5em; /* Larger text */
+  color: #555; /* Darker text color */
+  margin: 20px 0; /* Some margin to separate from other elements */
+}

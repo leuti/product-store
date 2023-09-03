@@ -25,7 +25,6 @@
 ## Cart
 
 - BUG: I have items in my cart. I press the Clear Cart button. I would expect the Clear Button to disappear, the "Cart is empty message to reappear"
-- BUG: When I clear the Cart, the item counter in NavBar is not reset
 - LOOK: total price --> round to 2 digits max
 - CHANGE: Add + and - button to change quantity
 - TECH: Implement OnDestroy
