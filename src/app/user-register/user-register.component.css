@@ -6,7 +6,7 @@
   background: #f7f9fc;
 }
 
-.register-form {
+.comp-form {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -50,7 +50,15 @@ h1 {
   background: #e5e8ed;
 }
 
-.register-form input[type="submit"] {
+/* Styles for disabled button */
+input[type="submit"]:disabled {
+  background-color: #cccccc; /* Gray color */
+  color: #666666; /* Slightly darker gray for text */
+  border: 1px solid #999999; /* Gray border */
+  cursor: not-allowed; /* Indicate that the button can't be clicked */
+}
+
+.comp-form input[type="submit"]:not(:disabled) {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -61,26 +69,7 @@ h1 {
   align-self: center; /* Center the button in the form */
 }
 
-.register-form input[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-/* Styles for disabled button */
-input[type="submit"]:disabled {
-  background-color: #cccccc; /* Gray color */
-  color: #666666; /* Slightly darker gray for text */
-  border: 1px solid #999999; /* Gray border */
-  cursor: not-allowed; /* Indicate that the button can't be clicked */
-}
-
-/* Optional: If you want to provide some hover feedback, even though the button is disabled */
-input[type="submit"]:disabled:hover {
-  background-color: #b5b5b5;
-}
-
 .error-message {
-  color: #ff4d4d;
-  margin-top: 15px;
-  font-weight: bold;
-  align-self: center; /* Center the error message in the form */
+  flex: 1; /* Allow error message to take up all available space */
+  color: red; /* Assuming you want the error in red; adjust as needed */
 }

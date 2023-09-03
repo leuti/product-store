@@ -16,6 +16,7 @@
 
 ## Products
 
+- Make product list wider
 - 2 quantity field as drop down
 - BUG: When I enter a number into the quantity field and press the Add to Cart Button again, 1 is added to the end of the number (no addition)
 - BUG: I can add non numbers to quantity. Ensure that only digits can be added
@@ -30,7 +31,7 @@
 ## Cart
 
 - BUG: I have items in my cart. I press the Clear Cart button. I would expect the Clear Button to disappear as the countItems var should be 0
-- 2 display "Cart empty" if nothing is in cart
+- BUG: When I clear the Cart, the item counter in NavBar is not reset
 - 3 total price --> rounding
 - 3 +/- to adjust quantities
 

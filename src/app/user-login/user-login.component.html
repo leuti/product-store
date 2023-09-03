@@ -1,23 +1,30 @@
 <div class="centered-content">
-  <form (ngSubmit)="loginUser(login, password)" #form="ngForm">
+  <form
+    (ngSubmit)="loginUser(login, password)"
+    #form="ngForm"
+    class="login-form"
+  >
     <h1>Login</h1>
-    <input
-      type="text"
-      name="login"
-      minlength="3"
-      maxlength="20"
-      placeholder="login"
-      [(ngModel)]="login"
-    />
-    <input
-      type="password"
-      name="password"
-      minlength="6"
-      maxlength="50"
-      placeholder="password"
-      [(ngModel)]="password"
-    />
-
+    <div class="input-group">
+      <input
+        type="text"
+        name="login"
+        minlength="3"
+        maxlength="20"
+        placeholder="login"
+        [(ngModel)]="login"
+      />
+    </div>
+    <div class="input-group">
+      <input
+        type="password"
+        name="password"
+        minlength="6"
+        maxlength="50"
+        placeholder="password"
+        [(ngModel)]="password"
+      />
+    </div>
     <input type="submit" [disabled]="form.invalid" style="margin-left: 20px" />
   </form>
   <div *ngIf="errorMessage" class="error-message">

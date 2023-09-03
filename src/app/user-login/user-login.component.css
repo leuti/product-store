@@ -7,7 +7,7 @@
   background: #f7f9fc; /* light grayish-blue background */
 }
 
-.centered-content form {
+.comp-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -18,13 +18,13 @@
   width: 300px;
 }
 
-.centered-content h1 {
+.h1 {
   margin-bottom: 25px;
   color: #333; /* dark text for contrast */
 }
 
-.centered-content input[type="text"],
-.centered-content input[type="password"] {
+.comp-form input[type="text"],
+.comp-form input[type="password"] {
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
@@ -35,23 +35,23 @@
   transition: background-color 0.3s ease;
 }
 
-.centered-content input[type="text"]:focus,
-.centered-content input[type="password"]:focus {
+.comp-form input[type="text"]:focus,
+.comp-form input[type="password"]:focus {
   outline: none;
   background: #e5e8ed; /* slightly darker on focus for feedback */
 }
 
-.centered-content input[type="submit"] {
+.login-form input[type="submit"]:not(:disabled) {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #007bff; /* Bootstrap primary color */
+  background-color: #007bff; /*Bootstrap primary color*/
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.centered-content input[type="submit"]:hover {
+.comp-form input[type="submit"]:hover {
   background-color: #0056b3; /* darker shade of blue */
 }
 
