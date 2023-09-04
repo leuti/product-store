@@ -30,7 +30,6 @@ export class UserRegisterComponent implements OnInit {
   // register user
   register(user: User): void {
     // register user
-    console.log(`Register function reached ${JSON.stringify(user)}`);
     this.userService.registerUser(user).subscribe({
       next: (res) => {
         if (res && !res.message) {

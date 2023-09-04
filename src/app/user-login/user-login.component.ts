@@ -33,7 +33,6 @@ export class UserLoginComponent implements OnInit {
     // authenticate user
     this.userService.loginUser(login, password).subscribe({
       next: (res) => {
-        console.log(`loginUser: next function`);
         if (res && !res.message) {
           this.token = res;
           this.userService.storeToken(this.token); // store token in localStorage
@@ -43,7 +42,6 @@ export class UserLoginComponent implements OnInit {
         }
       },
       error: (err: any) => {
-        console.log(`loginUser: error function: ${err}`);
         if (err.state === 401) {
           this.errorMessage = 'Login failed';
         }
