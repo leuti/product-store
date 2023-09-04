@@ -88,3 +88,9 @@ p {
   margin-bottom: 10px;
   color: #7f8c8d; /* Dark grayish-blue for some contrast */
 }
+
+.validation-error {
+  font-size: smaller;
+  padding-left: 10px;
+  color: red;
+}

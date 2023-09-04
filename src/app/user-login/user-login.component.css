@@ -20,7 +20,7 @@
   border-radius: 10px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
   background: #ffffff;
-  width: 300px;
+  width: 370px;
 }
 
 .login-form h1 {
@@ -76,4 +76,10 @@ input[type="submit"]:hover {
   color: red;
   font-size: 14px;
   margin-top: 10px;
+}
+
+.validation-error {
+  font-size: smaller;
+  padding-left: 10px;
+  color: red;
 }

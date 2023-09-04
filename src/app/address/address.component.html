@@ -16,12 +16,18 @@
       type="text"
       name="fullname"
       required
-      minlength="3"
-      maxlength="50"
-      placeholder="(minimum 3 characters)"
+      minlength="4"
+      maxlength="100"
+      placeholder="(minimum 4 characters)"
       [(ngModel)]="fullName"
       #fullNameInput="ngModel"
     />
+    <div
+      *ngIf="fullNameInput.invalid && fullNameInput.dirty"
+      class="validation-error"
+    >
+      Fullname must be between 4 and 100 characters.
+    </div>
     <p>Address</p>
     <input
       type="text"
@@ -33,6 +39,12 @@
       [(ngModel)]="address"
       #addressInput="ngModel"
     />
+    <div
+      *ngIf="addressInput.invalid && addressInput.dirty"
+      class="validation-error"
+    >
+      Address must be between 6 and 255 characters.
+    </div>
     <p>Credit Card Number</p>
     <input
       type="text"
@@ -45,6 +57,12 @@
       [(ngModel)]="cardNumber"
       #cardNumberInput="ngModel"
     />
+    <div
+      *ngIf="cardNumberInput.invalid && cardNumberInput.dirty"
+      class="validation-error"
+    >
+      Credit Card Number must have 16 digits.
+    </div>
     <input
       type="submit"
       [disabled]="

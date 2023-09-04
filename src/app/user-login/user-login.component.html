@@ -15,6 +15,12 @@
         [(ngModel)]="login"
         #loginInput="ngModel"
       />
+      <div
+        *ngIf="loginInput.invalid && loginInput.dirty"
+        class="validation-error"
+      >
+        Login must be between 3 and 20 characters.
+      </div>
     </div>
     <div class="input-group">
       <input
@@ -26,6 +32,12 @@
         [(ngModel)]="password"
         #passwordInput="ngModel"
       />
+      <div
+        *ngIf="passwordInput.invalid && passwordInput.dirty"
+        class="validation-error"
+      >
+        Password must be between 6 and 20 characters.
+      </div>
     </div>
     <div class="submit-container">
       <input

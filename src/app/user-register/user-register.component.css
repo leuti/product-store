@@ -14,7 +14,7 @@
   border-radius: 10px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
   background: #ffffff;
-  width: 450px; /* Slightly wider to accommodate the labels and inputs */
+  width: 500px; /* Slightly wider to accommodate the labels and inputs */
 }
 
 h1 {
@@ -76,4 +76,11 @@ input[type="submit"]:disabled {
 .error-message {
   flex: 1; /* Allow error message to take up all available space */
   color: red; /* Assuming you want the error in red; adjust as needed */
+}
+
+.validation-error {
+  font-size: smaller;
+  margin-left: 20px;
+  padding-left: 130px;
+  color: red;
 }

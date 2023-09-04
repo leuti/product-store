@@ -27,6 +27,12 @@
         [(ngModel)]="user.login"
         #loginInput="ngModel"
       />
+      <div
+        *ngIf="loginInput.invalid && loginInput.dirty"
+        class="validation-error"
+      >
+        Login must be between 3 and 20 characters.
+      </div>
     </div>
     <div class="input-group">
       <p>Password</p>
@@ -35,11 +41,17 @@
         name="password"
         required
         minlength="6"
-        maxlength="50"
+        maxlength="20"
         placeholder="(minimum 6 characters)"
         [(ngModel)]="user.password"
         #passwordInput="ngModel"
       />
+      <div
+        *ngIf="passwordInput.invalid && passwordInput.dirty"
+        class="validation-error"
+      >
+        Password must be between 6 and 20 characters.
+      </div>
     </div>
     <div class="input-group">
       <p>First Name</p>
@@ -47,12 +59,18 @@
         type="text"
         name="firstName"
         required
-        minlength="6"
+        minlength="2"
         maxlength="50"
         placeholder="(minimum 6 characters)"
         [(ngModel)]="user.firstName"
         #firstNameInput="ngModel"
       />
+      <div
+        *ngIf="firstNameInput.invalid && firstNameInput.dirty"
+        class="validation-error"
+      >
+        Firstname must be between 2 and 50 characters.
+      </div>
     </div>
     <div class="input-group">
       <p>Last Name</p>
@@ -60,25 +78,36 @@
         type="text"
         name="lastName"
         required
-        minlength="6"
+        minlength="2"
         maxlength="50"
         placeholder="(minimum 6 characters)"
         [(ngModel)]="user.lastName"
         #lastNameInput="ngModel"
       />
+      <div
+        *ngIf="lastNameInput.invalid && lastNameInput.dirty"
+        class="validation-error"
+      >
+        Lastname must be between 2 and 50 characters.
+      </div>
     </div>
     <div class="input-group">
       <p>E-mail</p>
       <input
-        type="text"
+        type="email"
         name="email"
         required
-        minlength="3"
-        maxlength="50"
+        email
         placeholder="E-Mail"
         [(ngModel)]="user.email"
         #emailInput="ngModel"
       />
+      <div
+        *ngIf="emailInput.invalid && emailInput.dirty"
+        class="validation-error"
+      >
+        Email is not valid.
+      </div>
     </div>
     <div class="register-container">
       <input

@@ -3,7 +3,6 @@
 ## General
 
 - MUST: Document code
-- MUST: Write README.md
 
 ## API
 
@@ -35,6 +34,7 @@
 
 ### Future enhancements
 
+- Form validation: indicate fields with error
 - Switch to https (see ChatGPT chat "Angular")
 - Authentication: Check if expired toakens
 - checkTokenAtStartup: authenticate user with token at start up
