@@ -43,6 +43,7 @@ export class ShoppingCartService {
       // Update the cartItemsCount
       const currentCount = this.cartItemsCount.value;
       this.cartItemsCount.next(currentCount + 1);
+      //alert('Item added to cart');
     } else {
       // If it is already existing, I overwrite the existing quantity
       this.cartItems[cartIndex].quantity = product.quantity;
@@ -61,6 +62,19 @@ export class ShoppingCartService {
     const currentCount = this.cartItemsCount.value;
     this.cartItemsCount.next(currentCount - 1);
     this.cartItems = [];
+  }
+
+  decreaseQuantity(product: Product): void {
+    // get array index of cartItem
+    const cartIndex = this.cartItems.findIndex((prod) => prod.id == product.id);
+    // if cartItem found and current quantity is larger than 1 (reduction does not lead to 0)
+    if (cartIndex !== -1 && this.cartItems[cartIndex].quantity > 1) {
+      this.cartItems[cartIndex].quantity -= 1; // reduce the quanity in the cartItems array
+    } else {
+      const currentCount = this.cartItemsCount.value;
+      this.cartItemsCount.next(currentCount - 1);
+      this.cartItems.splice(cartIndex, 1);
+    }
   }
 
   clearCart(): void {

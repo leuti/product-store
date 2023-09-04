@@ -46,7 +46,7 @@ export class ProductDetailComponent implements OnInit {
       product.quantity -= 1;
       if (product.quantity === 0) {
         // remove item from cart
-        this.shoppingCartService.removeFromCart(product);
+        this.shoppingCartService.decreaseQuantity(product);
       }
     }
   }

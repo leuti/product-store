@@ -50,16 +50,17 @@ export class ProductItemComponent implements OnInit {
   }
 
   decreaseQuantity(product: Product) {
+    console.log(
+      `decreaseQuantity function reached: quantity = ${product.quantity}`
+    );
     if (product.quantity > 0) {
       product.quantity -= 1;
-      if (product.quantity === 0) {
-        // remove item from cart
-        this.shoppingCartService.removeFromCart(product);
-      }
+      this.shoppingCartService.decreaseQuantity(product);
     }
   }
 
   increaseQuantity(product: Product) {
     product.quantity += 1;
+    this.shoppingCartService.addToCart(product);
   }
 }
