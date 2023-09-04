@@ -1,14 +1,15 @@
 <div class="cartItems">
-  <div style="margin-left: 50px">
+  <div class="item-image" style="margin-left: 50px">
     <img
       src="http://localhost:3000/img/images?filename={{
         cartItem.imageFile
       }}&width={{ width }}&height={{ height }}"
     />
   </div>
-  <div>
+  <div class="item-details">
     <p style="font-weight: bold">{{ cartItem.title }}</p>
     <p>Unit price: ${{ cartItem.price }}</p>
     <p>Number of items: {{ cartItem.quantity }}</p>
   </div>
+  <button class="remove-item-btn" (click)="removeItem(cartItem)">X</button>
 </div>

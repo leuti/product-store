@@ -1,8 +1,25 @@
 .cartItems {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* This creates three equally wide columns */
+  display: flex;
+  /* grid-template-columns: 1fr 1fr; /* This creates three equally wide columns */
+  justify-content: space-between;
+  align-items: center;
   gap: 20px; /* This is the gap between the grid items */
   padding: 10px;
   margin: 20px;
   border: 1px solid #ccc;
+}
+
+.remove-item-btn {
+  background-color: transparent; /* Assuming you want a transparent background */
+  border: none;
+  font-size: 1.5em; /* Adjust as needed for your "X" size */
+  cursor: pointer;
+  color: red; /* Making the X red to indicate delete, but adjust as needed */
+  padding: 10px;
+  margin-right: 20px; /* Give it a little space from the right edge */
+}
+
+/* Add hover effect for better user feedback */
+.remove-item-btn:hover {
+  background-color: rgba(255, 0, 0, 0.1);
 }
