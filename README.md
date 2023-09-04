@@ -1,4 +1,39 @@
-# product-store
+# product-store Front-end
+
+## Getting Started
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+
+The product-store is a Udacity project deliverable. It offers the basic functions of a webshop. Its written AngularJS and interacts with the API built during a previous project.
+
+Please ensure that the product-store API is running on the local machine. For download and instructions --> https://github.com/leuti/product-api.git.
+
+## Required modules
+
+This application makes use of the following libraries (incomplete list. See package.JSON for all dependencies):
+
+- angular (several packages)
+- typescript
+- bootstrap
+- rxjs
+
+## Steps to installation (details below)
+
+- git clone https://github.com/leuti/product-store.git
+- Run the command "npm install" to install all required packages
+- Install the product-store API --> follow instructions here: https://github.com/leuti/product-api.git
+
+## All scripts described:
+
+- ng serve: Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files
+- npm run start: same as ng serve
+- npm run build: Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory
+- npm run watch: runs the application in watch mode
+- npm run test (no tests implemented): Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io)
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Concepts and components
 
@@ -6,25 +41,27 @@
 
 app/
 |
-|-- products/ {using services P-S & SC-S}
-| |-- product-item {using services P-S & SC-S}
-|-- product-detail {using services P-S & SC-S}
 |-- nav-bar
-|-- cart-ordered {using services SC-S}
-|-- cart/ {using services SC-S}
+|-- products/
+| |-- product-item
+|-- product-detail
+|-- cart/
 | |-- cart-item
-| |-- address {using services SC-S}
+| |-- address
+|-- cart-ordered
+|-- user-login
+|-- user-register
 
 ### Services
 
 services/
 |
-|-- ProductService/ {P-S}
+|-- ProductService/
 | |-- function getProducts
 | |-- function setSelectedProduct
 | |-- function getSelectedProduct
 
-|-- ShoppingCartService/ { SC-S}
+|-- ShoppingCartService/
 | |-- function getCartContent
 | |-- function addToCart
 | |-- function removeFromCart
@@ -32,32 +69,13 @@ services/
 | |-- function setOrderSuccess
 | |-- function getOrderSuccess
 
----- pre-defined content ----
-
-# ProductStore
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+|-- UserService/
+| |-- function registerUser
+| |-- loginUser
+| |-- logoffUser
+| |-- storeToken
+| |-- setUserLoggedIn
+| |-- getUserLoggedIn
+| |-- setUserData
+| |-- getUserData
+| |-- decodeJwt

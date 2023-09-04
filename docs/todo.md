@@ -4,7 +4,6 @@
 
 - MUST: Document code
 - MUST: Write README.md
-- remove console logs
 
 ## API
 
@@ -12,11 +11,7 @@
 
 ## Products
 
-- CHANGE: Expand text if requested
-
 ## ProductDetails
-
-- CHANGE: Link "back to product list"
 
 ## Cart
 
@@ -34,15 +29,19 @@
 
 ### Authentication
 
-- Authentication: Check if expired toakens (if implemented)
-- checkTokenAtStartup: authenticate user with token
-- Switch to HttpOnly Cookies (see ChatGPT chat "Angular")
-- Switch to https (see ChatGPT chat "Angular")
-- Implement token Rotation
-
 ### My-Order-Component
 
-- New component
+- New component fetching my order via API
+
+### Future enhancements
+
+- Switch to https (see ChatGPT chat "Angular")
+- Authentication: Check if expired toakens
+- checkTokenAtStartup: authenticate user with token at start up
+- Switch to HttpOnly Cookies (see ChatGPT chat "Angular")
+- Change password component
+- Password forgotten
+- Login forgotten
 
 ## Known Issues
 
