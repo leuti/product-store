@@ -14,6 +14,8 @@ import { CartItem } from '../models/CartItem';
 export class ProductsComponent implements OnInit {
   title: string = 'Products List';
   products: Product[] = [];
+  filteredProducts: Product[] = [];
+  searchTerm: string = '';
 
   constructor(
     private productService: ProductService,
@@ -21,10 +23,13 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // get products from API
     this.productService.getProducts().subscribe((res) => {
       this.products = res;
-      const cartItems: CartItem[] = this.shoppingCartService.getCartContent();
+      this.filteredProducts = [...this.products]; // this array contains the filtered products
+      const cartItems: CartItem[] = this.shoppingCartService.getCartContent(); // load content of the cart
 
+      // Update the product quantities on the UI if cart has already been filled
       if (cartItems.length >= 1) {
         cartItems.forEach((item) => {
           const product = this.products.find((prod) => prod.id === item.id);
@@ -33,12 +38,21 @@ export class ProductsComponent implements OnInit {
           }
         });
       } else {
+        // Set product quantity to 0 if not yet available in cart
         this.products = this.products.map((product) => ({
           ...product,
           quantity: 0,
         }));
       }
     });
+  }
+
+  // allows to filter for specific products
+  filterProducts() {
+    const lowerCaseSearchTerm = this.searchTerm.toLowerCase();
+    this.filteredProducts = this.products.filter((product) =>
+      product.title.toLowerCase().includes(lowerCaseSearchTerm)
+    );
   }
 
   // This function was added as Udacity required the implementation of @Output

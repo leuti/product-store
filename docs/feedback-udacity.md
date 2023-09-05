@@ -52,7 +52,7 @@ ngModel is used on the element to bind a form control to a data property. ngMode
 
 ### My response
 
-My response
+Requested feature implemented
 
 ## Data Flow - Use decorators to pass data between parent and child components
 
@@ -62,4 +62,4 @@ However, the rubric also requires the use of @Output decorator for passing data 
 
 ### My response
 
-My response
+Requested feature implemented

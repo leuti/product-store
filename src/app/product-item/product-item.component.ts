@@ -46,15 +46,17 @@ export class ProductItemComponent implements OnInit {
   }
 
   // When add to cart button is pressed, the quantity is set / increased
-  addToCartX(product: Product): void {
+  /* This function has be replaced by the addToCart above (to emplement the Emitter)
+  addToCart(product: Product): void {
     // Set quantity to 1 if qantity is empty or 0
     if (product.quantity !== undefined || product.quantity === 0) {
       product.quantity = 1;
     }
 
     this.shoppingCartService.addToCart(product); // product is added to cart
-  }
+  }*/
 
+  // Fires when user clicks the "-" on the UI
   decreaseQuantity(product: Product) {
     if (product.quantity > 0) {
       product.quantity -= 1;
@@ -62,6 +64,7 @@ export class ProductItemComponent implements OnInit {
     }
   }
 
+  // Fires when user clicks the "+" on the UI
   increaseQuantity(product: Product) {
     product.quantity += 1;
     this.shoppingCartService.addToCart(product);

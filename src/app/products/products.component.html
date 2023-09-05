@@ -1,9 +1,15 @@
 <div class="centered-content">
   <h1>{{ title }}</h1>
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="filterProducts()"
+    placeholder="Search product titles..."
+  />
   <div class="productList">
     <app-product-item
       (productAddedToCart)="handleProductAddedToCart($event)"
-      *ngFor="let product of products"
+      *ngFor="let product of filteredProducts"
       [product]="product"
     ></app-product-item>
   </div>
