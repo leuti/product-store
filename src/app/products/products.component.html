@@ -2,6 +2,7 @@
   <h1>{{ title }}</h1>
   <div class="productList">
     <app-product-item
+      (productAddedToCart)="handleProductAddedToCart($event)"
       *ngFor="let product of products"
       [product]="product"
     ></app-product-item>

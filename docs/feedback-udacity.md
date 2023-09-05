@@ -25,7 +25,7 @@ The details page for a product shows a photo of the product, the name, the price
 
 ### My response
 
-I cannot reproduce this. In my fresh local installation I do get the images back. This is how the element looks here: <img _ngcontent-ng-c2106162466="" src="http://localhost:3000/img/images?filename=harness.jpg&amp;width=300&amp;height=200">. Can you please send me your element?
+Issue fixed
 
 ### Reviewer Note
 

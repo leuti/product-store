@@ -1,5 +1,5 @@
 // external modules
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 // internal services & models
 import { ShoppingCartService } from '../services/shopping-cart.service';
@@ -13,6 +13,7 @@ import { Product } from '../models/Product';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product; // get product fromo parent
+  @Output() productAddedToCart: EventEmitter<Product> = new EventEmitter();
   width: number = 300;
   height: number = 200; // used to render images in correct size
 
@@ -39,8 +40,13 @@ export class ProductItemComponent implements OnInit {
     this.router.navigate(['/product-detail']); // navigate to detail view
   }
 
-  // When add to cart button is pressed, the quantity is set / increased
+  // This function was added as Udacity required the implementation of @Output
   addToCart(product: Product): void {
+    this.productAddedToCart.emit(product);
+  }
+
+  // When add to cart button is pressed, the quantity is set / increased
+  addToCartX(product: Product): void {
     // Set quantity to 1 if qantity is empty or 0
     if (product.quantity !== undefined || product.quantity === 0) {
       product.quantity = 1;
@@ -50,9 +56,6 @@ export class ProductItemComponent implements OnInit {
   }
 
   decreaseQuantity(product: Product) {
-    console.log(
-      `decreaseQuantity function reached: quantity = ${product.quantity}`
-    );
     if (product.quantity > 0) {
       product.quantity -= 1;
       this.shoppingCartService.decreaseQuantity(product);

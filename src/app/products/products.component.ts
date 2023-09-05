@@ -40,4 +40,14 @@ export class ProductsComponent implements OnInit {
       }
     });
   }
+
+  // This function was added as Udacity required the implementation of @Output
+  handleProductAddedToCart(product: Product) {
+    // Set quantity to 1 if qantity is empty or 0
+    if (product.quantity !== undefined || product.quantity === 0) {
+      product.quantity = 1;
+    }
+
+    this.shoppingCartService.addToCart(product); // product is added to cart
+  }
 }
