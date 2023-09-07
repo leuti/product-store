@@ -39,4 +39,8 @@
   >
     Add to Cart (added)
   </button>
+  <p *ngIf="addedMsg" class="added-confirmation">Product added to cart.</p>
+  <p *ngIf="removedMsg" class="added-confirmation">
+    Product removed from cart.
+  </p>
 </div>

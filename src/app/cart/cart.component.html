@@ -8,15 +8,19 @@
 
       <div class="cart-items" *ngIf="cartCount > 0">
         <app-cart-item
+          (itemRemovedMsg)="handleItemRemovedMsg()"
           *ngFor="let cartItem of cartItems"
           [cartItem]="cartItem"
         ></app-cart-item>
-        <div class="cart-total-container">
+        <div class="cart-action-container">
           <button class="clear-cart-btn" (click)="clearCart()">
             Clear Cart
           </button>
           <p class="total-price">Total Price: ${{ getTotalPrice() }}</p>
         </div>
+        <p *ngIf="showCartMsg" class="added-confirmation">
+          Product removed from cart.
+        </p>
       </div>
     </div>
     <div class="address">

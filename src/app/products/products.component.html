@@ -1,6 +1,7 @@
 <div class="centered-content">
   <h1>{{ title }}</h1>
   <input
+    class="search-field"
     type="text"
     [(ngModel)]="searchTerm"
     (ngModelChange)="filterProducts()"

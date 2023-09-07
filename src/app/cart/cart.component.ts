@@ -16,6 +16,7 @@ export class CartComponent implements OnInit {
   totalPrice: number = 0;
   cartItems: CartItem[] = [];
   cartCount: number = 0;
+  showCartMsg: boolean = false;
   private cartSubscription: Subscription = new Subscription();
 
   constructor(private shoppingCartService: ShoppingCartService) {}
@@ -53,5 +54,12 @@ export class CartComponent implements OnInit {
     this.shoppingCartService.clearCart();
     this.cartItems = [];
     this.cartCount = 0;
+  }
+
+  handleItemRemovedMsg(): void {
+    this.showCartMsg = true;
+    setTimeout(() => {
+      this.showCartMsg = false;
+    }, 5000);
   }
 }

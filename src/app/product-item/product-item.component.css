@@ -122,3 +122,9 @@ input::placeholder {
 .clickable-item {
   cursor: pointer;
 }
+
+.added-confirmation {
+  font-size: smaller;
+  color: red;
+  margin-top: 10px;
+}

@@ -30,9 +30,11 @@
   height: 100%; /* Take full height of its container */
 }
 
-.cart-total-container {
+.cart-actions-container {
   display: flex;
+  justify-content: center;
   align-items: center; /* to align items vertically in the center, if needed */
+  flex-direction: column;
   gap: 50px; /* This will introduce a 20px gap between all direct children */
 }
 .clear-cart-btn {
@@ -73,4 +75,11 @@
   font-size: 1.5em; /* Larger text */
   color: #555; /* Darker text color */
   margin: 20px 0; /* Some margin to separate from other elements */
+}
+
+.added-confirmation {
+  text-align: center;
+  font-size: smaller;
+  color: red;
+  margin-top: 10px;
 }

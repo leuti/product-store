@@ -16,6 +16,8 @@ export class ProductItemComponent implements OnInit {
   @Output() productAddedToCart: EventEmitter<Product> = new EventEmitter();
   width: number = 300;
   height: number = 200; // used to render images in correct size
+  addedMsg: boolean = false;
+  removedMsg: boolean = false;
 
   constructor(
     private shoppingCartService: ShoppingCartService,
@@ -43,6 +45,7 @@ export class ProductItemComponent implements OnInit {
   // This function was added as Udacity required the implementation of @Output
   addToCart(product: Product): void {
     this.productAddedToCart.emit(product);
+    this.showAddedMsg();
   }
 
   // When add to cart button is pressed, the quantity is set / increased
@@ -58,9 +61,13 @@ export class ProductItemComponent implements OnInit {
 
   // Fires when user clicks the "-" on the UI
   decreaseQuantity(product: Product) {
-    if (product.quantity > 0) {
+    if (product.quantity > 1) {
       product.quantity -= 1;
       this.shoppingCartService.decreaseQuantity(product);
+    } else if (product.quantity === 1) {
+      product.quantity -= 1;
+      this.shoppingCartService.decreaseQuantity(product);
+      this.showRemovedMsg();
     }
   }
 
@@ -68,5 +75,19 @@ export class ProductItemComponent implements OnInit {
   increaseQuantity(product: Product) {
     product.quantity += 1;
     this.shoppingCartService.addToCart(product);
+  }
+
+  showAddedMsg(): void {
+    this.addedMsg = true;
+    setTimeout(() => {
+      this.addedMsg = false;
+    }, 5000);
+  }
+
+  showRemovedMsg() {
+    this.removedMsg = true;
+    setTimeout(() => {
+      this.removedMsg = false;
+    }, 5000);
   }
 }

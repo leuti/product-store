@@ -1,9 +1,8 @@
 // external modules
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 // internal services & models
 import { ShoppingCartService } from '../services/shopping-cart.service';
-import { Product } from '../models/Product';
 import { CartItem } from '../models/CartItem';
 
 @Component({
@@ -13,6 +12,7 @@ import { CartItem } from '../models/CartItem';
 })
 export class CartItemComponent implements OnInit {
   @Input() cartItem: CartItem;
+  @Output() itemRemovedMsg: EventEmitter<boolean> = new EventEmitter();
   width: number = 150;
   height: number = 100; // used to render image in correct size
   product = {
@@ -43,5 +43,6 @@ export class CartItemComponent implements OnInit {
     this.product.quantity = cartItem.quantity;
     this.product.price = cartItem.price;
     this.shoppingCartService.removeFromCart(this.product);
+    this.itemRemovedMsg.emit(true);
   }
 }
