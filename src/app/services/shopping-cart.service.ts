@@ -6,6 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { CartItem } from '../models/CartItem';
 import { Product } from '../models/Product';
 import { OrderDetails } from '../models/OrderDetails';
+import { JsonPipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
@@ -58,10 +59,11 @@ export class ShoppingCartService {
     // If the cartItem is is found, it is removed from the array
     if (cartIndex !== -1) {
       this.cartItems.splice(cartIndex, 1);
+    } else {
+      this.cartItems = [];
     }
     const currentCount = this.cartItemsCount.value;
     this.cartItemsCount.next(currentCount - 1);
-    this.cartItems = [];
   }
 
   decreaseQuantity(product: Product): void {

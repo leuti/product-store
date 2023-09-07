@@ -16,7 +16,9 @@
           <button class="clear-cart-btn" (click)="clearCart()">
             Clear Cart
           </button>
-          <p class="total-price">Total Price: ${{ getTotalPrice() }}</p>
+          <p class="total-price">
+            Total Price: ${{ getTotalPrice() | number : "1.0-2" }}
+          </p>
         </div>
         <p *ngIf="showCartMsg" class="added-confirmation">
           Product removed from cart.
