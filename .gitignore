@@ -3,7 +3,7 @@
 .env
 
 # Compiled output
-/dist
+# /dist # dist directory must be deployed to git as aws automatically deploys full root directory
 /tmp
 
 # Node
