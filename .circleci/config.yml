@@ -14,10 +14,10 @@ jobs:
           name: List files
           command: |
             ls -la
-#      - run:
-#          name: Build client
-#          command: |
-#            npm run build
+  #      - run:
+  #          name: Build client
+  #          command: |
+  #            npm run build
   deploy:
     docker:
       - image: "cimg/base:stable"
@@ -25,10 +25,6 @@ jobs:
       - node/install
       - checkout
       - run:
-          name: List files
-          command: |
-            ls -la
-       - run:
           name: Deploy client
           command: |
             ./bin/deploy.sh
