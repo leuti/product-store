@@ -29,19 +29,12 @@ jobs:
       - node/install
       - aws-cli/install # Installiere die AWS CLI
       - checkout
-      - run:
-          name: Deploy to S3
-          command: |
-            aws configure set aws_access_key_id YOUR_ACCESS_KEY
-            aws configure set aws_secret_access_key YOUR_SECRET_KEY
-            aws configure set region YOUR_AWS_REGION
-            aws s3 cp ./dist/product-store s3://shopping-cli-029828047956/ --acl public-read
 
-#      - aws-s3/copy:
-#          from: ./dist/product-store # Pfad zum Build-Ausgabeverzeichnis
-#          # profile_name: deploy_user # ======== dieser ist irgendwie nicht korrekt
-#          to: s3://shopping-cli-029828047956/ # Ziel-S3-Bucket
-#          arguments: "--acl public-read" # Optionale Argumente, um die Berechtigungen anzupassen
+      - aws-s3/copy:
+          from: ./dist/product-store # Pfad zum Build-Ausgabeverzeichnis
+          # profile_name: deploy_user # ======== dieser ist irgendwie nicht korrekt
+          to: s3://shopping-cli-029828047956/ # Ziel-S3-Bucket
+          arguments: "--acl public-read" # Optionale Argumente, um die Berechtigungen anzupassen
 
 workflows:
   build_and_deploy:
