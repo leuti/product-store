@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "rm -rf dist && npm run build && cp -r package.json dist/product-store/"
   },
   "private": true,
   "dependencies": {

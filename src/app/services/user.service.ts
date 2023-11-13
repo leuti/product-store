@@ -24,7 +24,11 @@ export class UserService {
     const headers = { 'Content-Type': 'application/json' };
 
     return this.http
-      .post('http://localhost:3000/users', user, { headers })
+      .post(
+        'http://shopping-api-env.eba-8rhccdks.eu-central-1.elasticbeanstalk.com/users',
+        user,
+        { headers }
+      )
       .pipe(catchError(this.handleError));
   }
 
@@ -34,7 +38,7 @@ export class UserService {
 
     return this.http
       .post(
-        'http://localhost:3000/users/authenticate',
+        'http://shopping-api-env.eba-8rhccdks.eu-central-1.elasticbeanstalk.com/users/authenticate',
         { login, password },
         {
           headers,
