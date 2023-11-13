@@ -29,11 +29,14 @@ jobs:
       - node/install
       - aws-cli/install # Installiere die AWS CLI
       - checkout
-      - aws-s3/upload:
+      - aws-s3/copy:
           arguments: "--acl public-read" # Optionale Argumente, um die Berechtigungen anzupassen
-          source: ./dist/product-store # Pfad zum Build-Ausgabeverzeichnis
-          destination: s3://shopping-cli-029828047956/ # Ziel-S3-Bucket
-          overwrite: true # Optionales Argument zum Überschreiben vorhandener Dateien
+          from: ./dist/product-store # Pfad zum Build-Ausgabeverzeichnis
+          to: s3://shopping-cli-029828047956/ # Ziel-S3-Bucket
+          auth:
+            - aws-cli/setup:
+                profile_name: deploy_user
+                role_arn: arn:aws:iam::029828047956:user/deploy_user
 
 workflows:
   build_and_deploy:
