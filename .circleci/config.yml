@@ -27,7 +27,7 @@ jobs:
       - run:
           name: Deploy client
           command: |
-            ./bin/deploy.sh
+            sudo ./bin/deploy.sh
 
 workflows:
   build_and_deploy:
