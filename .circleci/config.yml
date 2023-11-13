@@ -27,7 +27,7 @@ jobs:
       - run:
           name: List files
           command: |
-            ls -la
+            cat ./bin/deploy.sh
       - run:
           name: Deploy client
           command: |
