@@ -33,7 +33,7 @@ jobs:
       - run:
           name: Deploy client
           command: |
-            sudo ./bin/deploy.sh
+            aws s3 cp --recursive --acl public-read ./dist s3://shopping-cli-029828047956/
 
 workflows:
   build_and_deploy:
