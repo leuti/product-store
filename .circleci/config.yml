@@ -12,7 +12,7 @@ jobs:
     steps:
       - node/install
       - checkout
-      - run
+      - run:
           name: Build client
           command: |
             npm run build
@@ -22,11 +22,11 @@ jobs:
     steps:
       - node/install
       - checkout
-      - run
+      - run:
         name: Deploy client
         command: |
           ./bin/deploy.sh
-    
+
 workflows:
   build_and_deploy:
     jobs:
