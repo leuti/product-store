@@ -13,7 +13,7 @@ jobs:
       - run:
           name: List files
           command: |
-            sl -la
+            ls -la
       - run:
           name: Build client
           command: |
@@ -27,7 +27,7 @@ jobs:
       - run:
           name: List files
           command: |
-            sl -la
+            ls -la
 #       - run:
 #          name: Deploy client
 #          command: |
