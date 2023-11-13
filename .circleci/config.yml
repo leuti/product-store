@@ -27,10 +27,6 @@ jobs:
       - node/install
       - checkout
       - run:
-          name: List files
-          command: |
-            cat ./bin/deploy.sh
-      - run:
           name: Deploy client
           command: |
             aws s3 cp --recursive --acl public-read ./dist s3://shopping-cli-029828047956/
