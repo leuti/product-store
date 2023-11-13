@@ -23,9 +23,9 @@ jobs:
       - node/install
       - checkout
       - run:
-        name: Deploy client
-        command: |
-          ./bin/deploy.sh
+          name: Deploy client
+          command: |
+            ./bin/deploy.sh
 
 workflows:
   build_and_deploy:
