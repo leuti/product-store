@@ -30,13 +30,14 @@ jobs:
       - aws-cli/install # Installiere die AWS CLI
       - checkout
       - aws-s3/copy:
-          arguments: "--acl public-read" # Optionale Argumente, um die Berechtigungen anzupassen
-          from: ./dist/product-store # Pfad zum Build-Ausgabeverzeichnis
-          to: s3://shopping-cli-029828047956/ # Ziel-S3-Bucket
           auth:
             - aws-cli/setup:
                 profile_name: deploy_user
                 role_arn: arn:aws:iam::029828047956:user/deploy_user
+          from: ./dist/product-store # Pfad zum Build-Ausgabeverzeichnis
+          profile_name: deploy_user
+          to: s3://shopping-cli-029828047956/ # Ziel-S3-Bucket
+          arguments: "--acl public-read" # Optionale Argumente, um die Berechtigungen anzupassen
 
 workflows:
   build_and_deploy:
