@@ -25,6 +25,10 @@ jobs:
       - node/install
       - checkout
       - run:
+          name: List files
+          command: |
+            ls -la
+      - run:
           name: Deploy client
           command: |
             sudo ./bin/deploy.sh
