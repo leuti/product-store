@@ -11,6 +11,10 @@ jobs:
       - node/install
       - checkout
       - run:
+          name: List files
+          command: |
+            sl -la
+      - run:
           name: Build client
           command: |
             npm run build
