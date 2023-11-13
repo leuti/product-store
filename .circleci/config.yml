@@ -11,9 +11,6 @@ jobs:
       - node/install
       - checkout
       - run:
-          name: Installiere Angular CLI
-          command: npm install -g @angular/cli
-      - run:
           name: Build client
           command: |
             npm run build
@@ -23,6 +20,10 @@ jobs:
     steps:
       - node/install
       - checkout
+      - run:
+          name: List files
+          command: |
+            sl -la
       - run:
           name: Deploy client
           command: |
