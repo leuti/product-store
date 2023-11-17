@@ -12,6 +12,9 @@ jobs:
       - node/install
       - checkout
       - run:
+          name: Echo job name
+          command: echo "build_dev"
+      - run:
           name: Install Angular CLI
           command: npm install -g @angular/cli
       - run:
@@ -28,6 +31,9 @@ jobs:
       - aws-cli/install
       - checkout
       - run:
+          name: Echo job name
+          command: echo "deploy_dev"
+      - run:
           name: Deploy client
           command: aws s3 cp --recursive --acl public-read ./dist/product-store s3://shopping-cli-029828047956/
   build_prod:
@@ -36,6 +42,9 @@ jobs:
     steps:
       - node/install
       - checkout
+      - run:
+          name: Echo job name
+          command: echo "build_prod"
       - run:
           name: Install Angular CLI
           command: npm install -g @angular/cli
@@ -52,6 +61,9 @@ jobs:
       - node/install
       - aws-cli/install
       - checkout
+      - run:
+          name: Echo job name
+          command: echo "deploy_prod"
       - run:
           name: Deploy client
           command: aws s3 cp --recursive --acl public-read ./dist/product-store s3://shopping-cli-prod-029828047956/
