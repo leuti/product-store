@@ -53,7 +53,7 @@ jobs:
           command: npm install
       - run:
           name: Build client
-          command: npm run build -- --prod
+          command: npm run build -- --configuration production
   deploy_prod:
     docker:
       - image: "cimg/base:stable"
