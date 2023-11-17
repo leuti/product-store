@@ -15,10 +15,13 @@ jobs:
       - node/install
       - checkout
       - run:
-          name: List files
+          name: Install Angular CLI
           command: |
-            ls -la dist/product-store
+            npm install -g @angular/cli
       - run:
+          name: Install Dependencies
+          command: npm install
+    - run:
           name: Build client
           command: |
             npm run build
