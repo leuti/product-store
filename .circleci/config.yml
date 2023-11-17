@@ -18,10 +18,10 @@ jobs:
           name: List files
           command: |
             ls -la dist/product-store
-        - run:
-            name: Build client
-            command: |
-              npm run build
+      - run:
+          name: Build client
+          command: |
+            npm run build
   deploy:
     docker:
       - image: "cimg/base:stable"
