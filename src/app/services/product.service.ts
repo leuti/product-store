@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 // internal services & models
 import { Product } from '../models/Product';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -23,17 +24,13 @@ export class ProductService {
 
   // call the API and get all products
   getProducts(): Observable<Product[]> {
-    return this.http
-      .get<Product[]>(
-        'http://shopping-api-env.eba-8rhccdks.eu-central-1.elasticbeanstalk.com/products'
-      )
-      .pipe(
-        map((products) => {
-          return products.map((product) => {
-            return { ...product, quantity: 0 }; // add field quantity to every product
-          });
-        })
-      );
+    return this.http.get<Product[]>(`${environment.apiUrl}/products`).pipe(
+      map((products) => {
+        return products.map((product) => {
+          return { ...product, quantity: 0 }; // add field quantity to every product
+        });
+      })
+    );
   }
 
   // the selectedProduct becomes the current product

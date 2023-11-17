@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 // internal services & models
 import { User } from '../models/Users';
@@ -24,11 +25,7 @@ export class UserService {
     const headers = { 'Content-Type': 'application/json' };
 
     return this.http
-      .post(
-        'http://shopping-api-env.eba-8rhccdks.eu-central-1.elasticbeanstalk.com/users',
-        user,
-        { headers }
-      )
+      .post(`${environment.apiUrl}/users`, user, { headers })
       .pipe(catchError(this.handleError));
   }
 
@@ -38,7 +35,7 @@ export class UserService {
 
     return this.http
       .post(
-        'http://shopping-api-env.eba-8rhccdks.eu-central-1.elasticbeanstalk.com/users/authenticate',
+        `${environment.apiUrl}/users/authenticate`,
         { login, password },
         {
           headers,

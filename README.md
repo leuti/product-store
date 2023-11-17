@@ -25,7 +25,7 @@ This application makes use of the following libraries (incomplete list. See pack
 
 ## All scripts described:
 
-- ng serve: Run `ng serve` for a dev server. Navigate to `http://shopping-api-env.eba-8rhccdks.eu-central-1.elasticbeanstalk.com:4200/`. The application will automatically reload if you change any of the source files
+- ng serve: Run `ng serve` for a dev server. Navigate to `http://shop1-env.eba-dcmw5bnw.eu-central-1.elasticbeanstalk.com/ will automatically reload if you change any of the source files
 - npm run start: same as ng serve
 - npm run build: Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory
 - npm run watch: runs the application in watch mode
