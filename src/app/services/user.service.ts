@@ -25,7 +25,7 @@ export class UserService {
     const headers = { 'Content-Type': 'application/json' };
 
     return this.http
-      .post(`${environment.apiUrl}/users`, user, { headers })
+      .post(`${environment.apiBaseUrl}/users`, user, { headers })
       .pipe(catchError(this.handleError));
   }
 
@@ -35,7 +35,7 @@ export class UserService {
 
     return this.http
       .post(
-        `${environment.apiUrl}/users/authenticate`,
+        `${environment.apiBaseUrl}/users/authenticate`,
         { login, password },
         {
           headers,

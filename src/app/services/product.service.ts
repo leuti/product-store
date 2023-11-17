@@ -24,7 +24,7 @@ export class ProductService {
 
   // call the API and get all products
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${environment.apiUrl}/products`).pipe(
+    return this.http.get<Product[]>(`${environment.apiBaseUrl}/products`).pipe(
       map((products) => {
         return products.map((product) => {
           return { ...product, quantity: 0 }; // add field quantity to every product
