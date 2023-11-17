@@ -5,7 +5,7 @@ version: 2.1
 orbs:
   node: circleci/node@5.1.0
   aws-cli: circleci/aws-cli@4.1.1
-  aws-s3: circleci/aws-s3@4.0.0
+  # aws-s3: circleci/aws-s3@4.0.0
 
 jobs:
   build:
@@ -32,7 +32,7 @@ jobs:
       - run:
           name: Deploy client
           command: |
-            aws s3 cp --recursive --acl public-read ./dist s3://shopping-cli-029828047956/
+            aws s3 cp --recursive --acl public-read ./dist/product-store s3://shopping-cli-029828047956/
 
 workflows:
   build_and_deploy:
