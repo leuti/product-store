@@ -8,7 +8,7 @@ orbs:
   # aws-s3: circleci/aws-s3@4.0.0
 
 jobs:
-  build:
+  build_dev:
     docker:
       - image: "cimg/base:stable"
     steps:
@@ -25,7 +25,35 @@ jobs:
           name: Build client
           command: |
             npm run build
-  deploy:
+  deploy_dev:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - node/install
+      - aws-cli/install # Installiere die AWS CLI
+      - checkout
+      - run:
+          name: Deploy client
+          command: |
+            aws s3 cp --recursive --acl public-read ./dist/product-store s3://shopping-cli-029828047956/
+  build_prod:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - node/install
+      - checkout
+      - run:
+          name: Install Angular CLI
+          command: |
+            npm install -g @angular/cli
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Build client
+          command: |
+            npm run build
+  deploy_prod:
     docker:
       - image: "cimg/base:stable"
     steps:
@@ -40,7 +68,13 @@ jobs:
 workflows:
   build_and_deploy:
     jobs:
-      - build
-      - deploy:
+      - build_dev
+        filters:
+          branches:
+            only: dev
+      - deploy_dev:
+        filters:
+          branches:
+            only: dev
           requires:
-            - build
+            - build_dev
