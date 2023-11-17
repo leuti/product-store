@@ -4,6 +4,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 // internal services & models
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { CartItem } from '../models/CartItem';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-cart-item',
@@ -11,6 +12,8 @@ import { CartItem } from '../models/CartItem';
   styleUrls: ['./cart-item.component.css'],
 })
 export class CartItemComponent implements OnInit {
+  apiBaseUrl = environment.apiBaseUrl;
+
   @Input() cartItem: CartItem;
   @Output() itemRemovedMsg: EventEmitter<boolean> = new EventEmitter();
   width: number = 150;

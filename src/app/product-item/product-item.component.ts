@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/Product';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-product-item',
@@ -12,6 +13,7 @@ import { Product } from '../models/Product';
   styleUrls: ['./product-item.component.css'],
 })
 export class ProductItemComponent implements OnInit {
+  apiBaseUrl = environment.apiBaseUrl;
   @Input() product: Product; // get product fromo parent
   @Output() productAddedToCart: EventEmitter<Product> = new EventEmitter();
   width: number = 300;

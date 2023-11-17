@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { Product } from '../models/Product';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-product-detail',
@@ -11,6 +12,7 @@ import { Product } from '../models/Product';
   styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit {
+  apiBaseUrl = environment.apiBaseUrl;
   product: Product = {
     id: 0,
     title: '',
