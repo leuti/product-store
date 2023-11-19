@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 // internal services & models
 import { UserService } from '../services/user.service';
 import { ShoppingCartService } from '../services/shopping-cart.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,6 +18,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
   cartCount: number = 0;
   private subscription: Subscription = new Subscription();
   private cartSubscription: Subscription = new Subscription();
+  envName = environment.envName;
 
   constructor(
     private userService: UserService,

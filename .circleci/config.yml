@@ -2,12 +2,14 @@ version: 2.1
 
 orbs:
   node: circleci/node@5.1.0
-  aws-cli: circleci/aws-cli@4.1.1
+  # aws-cli: circleci/aws-cli@4.1.1
 
 jobs:
-  build_dev:
+  build_and_deploy_dev:
     docker:
       - image: "cimg/base:stable"
+    environment:
+      ENV: dev
     steps:
       - node/install
       - checkout
@@ -23,22 +25,17 @@ jobs:
       - run:
           name: Build client
           command: npm run build
-  deploy_dev:
-    docker:
-      - image: "cimg/base:stable"
-    steps:
-      - node/install
-      - aws-cli/install
-      - checkout
       - run:
           name: Echo job name
           command: echo "deploy_dev"
       - run:
           name: Deploy client
           command: aws s3 cp --recursive --acl public-read ./dist/product-store s3://shopping-cli-029828047956/
-  build_prod:
+  build_and_deploy_prod:
     docker:
       - image: "cimg/base:stable"
+    environment:
+      ENV: prod
     steps:
       - node/install
       - checkout
@@ -54,13 +51,6 @@ jobs:
       - run:
           name: Build client
           command: npm run build -- --configuration production
-  deploy_prod:
-    docker:
-      - image: "cimg/base:stable"
-    steps:
-      - node/install
-      - aws-cli/install
-      - checkout
       - run:
           name: Echo job name
           command: echo "deploy_prod"
@@ -71,23 +61,11 @@ jobs:
 workflows:
   build_and_deploy:
     jobs:
-      - build_dev:
+      - build_and_deploy_dev:
           filters:
             branches:
               only: dev
-      - deploy_dev:
-          requires:
-            - build_dev
-          filters:
-            branches:
-              only: dev
-      - build_prod:
-          filters:
-            branches:
-              only: master
-      - deploy_prod:
-          requires:
-            - build_prod
+      - build_and_deploy_prod:
           filters:
             branches:
               only: master
