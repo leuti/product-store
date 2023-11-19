@@ -44,3 +44,11 @@ The client deployment process consists of the following main steps:
 | .elasticbeanstalk/config.yml | Specifies the configuration of the the AWS Elastic beanstalk setup    |
 | bin/deploy.sh                | File triggered during the deployment process to aws elastic beanstalk |
 | package.json                 | Includes misc. test and deployment scripts                            |
+
+## Deplyoment Process
+
+## Deployment Evidence
+
+![Deploy API](img/deploy_api.png)
+
+![Deploy Client](img/deploy_cli.png)
