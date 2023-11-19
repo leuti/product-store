@@ -3,6 +3,7 @@
 ## Overview
 
 Each push to the github repo triggers the deployment process. When pushing the dev branch, the deployment to the AWS development environment is triggered, when pushing the main/master branch, the deployment to the prod environment is done.
+As the client and API are separate projects, each part must be deployed individually.
 
 ## Deplyoment Process
 
@@ -22,7 +23,7 @@ The client deployment process consists of the following main steps:
 
 ### API Deployment Steps
 
-The client deployment process consists of the following main steps:
+The API deployment process consists of the following main steps:
 
 | Step                                | Description                                                                                                   |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -45,10 +46,18 @@ The client deployment process consists of the following main steps:
 | bin/deploy.sh                | File triggered during the deployment process to aws elastic beanstalk |
 | package.json                 | Includes misc. test and deployment scripts                            |
 
-## Deplyoment Process
-
 ## Deployment Evidence
 
-![Deploy API](img/deploy_api.png)
+### Successful Deployments
 
-![Deploy Client](img/deploy_cli.png)
+The deployment scripts run well for both environments and for both branches:
+
+![Deploy API](img/deploy_circleci.png)
+
+### Storage of ENV
+
+Environment variables are stored in CircleCI:
+![ENV in CircleCI](img/env_circleci.png)
+
+Environment variables are stored in AWS EB:
+![ENV in AWS EB](img/env_eb.png)

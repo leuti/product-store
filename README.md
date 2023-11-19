@@ -1,4 +1,4 @@
-# product-store Front-end
+# Product-store Front-end
 
 ## Getting Started
 
@@ -23,13 +23,12 @@ This application makes use of the following libraries (incomplete list. See pack
 - Run the command "npm install" to install all required packages
 - Install the product-store API --> follow instructions here: https://github.com/leuti/product-api.git
 
-## All scripts described:
+## Main package.json scripts
 
-- ng serve: Run `ng serve` for a dev server. Navigate to `http://shop1-env.eba-dcmw5bnw.eu-central-1.elasticbeanstalk.com/ will automatically reload if you change any of the source files
-- npm run start: same as ng serve
-- npm run build: Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory
-- npm run watch: runs the application in watch mode
-- npm run test (no tests implemented): Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io)
+- `npm run start`: Run `ng serve` for a dev server.
+- `npm run build`: Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory
+- `npm run watch`: runs the application in watch mode
+- `npm run test` (no tests implemented): Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io)
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
