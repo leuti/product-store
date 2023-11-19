@@ -18,8 +18,8 @@ The project consists of two repos:
 
 | App    | URL                                        |
 | ------ | ------------------------------------------ |
-| client | https://github.com/leuti/product-api.git   |
-| API    | https://github.com/leuti/product-store.git |
+| client | https://github.com/leuti/product-store.git |
+| API    | https://github.com/leuti/product-api.git   |
 
 ## CircleCI
 
