@@ -28,6 +28,7 @@ jobs:
       - run:
           name: Echo job name
           command: echo "deploy_dev"
+      - aws-cli/setup
       - run:
           name: Deploy client
           command: aws s3 cp --recursive --acl public-read ./dist/product-store s3://shopping-cli-029828047956/
@@ -54,6 +55,7 @@ jobs:
       - run:
           name: Echo job name
           command: echo "deploy_prod"
+      - aws-cli/setup
       - run:
           name: Deploy client
           command: aws s3 cp --recursive --acl public-read ./dist/product-store s3://shopping-cli-prod-029828047956/
