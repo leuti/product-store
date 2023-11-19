@@ -52,7 +52,13 @@ The API deployment process consists of the following main steps:
 
 The deployment scripts run well for both environments and for both branches:
 
-![Deploy API](img/deploy_circleci.png)
+![Deployments](img/deploy_circleci.png)
+
+The deployment steps of the client:
+![Deploy client details](img/deploy_details_cli.png)
+
+The deployment steps of the client:
+![Deploy API details](img/deploy_details_api.png)
 
 ### Storage of ENV
 
