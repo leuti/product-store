@@ -5,6 +5,7 @@
 # Compiled output
 /dist
 /tmp
+/docs/img
 
 # Node
 /node_modules

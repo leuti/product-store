@@ -14,23 +14,17 @@ jobs:
       - node/install
       - checkout
       - run:
-          name: Echo job name
-          command: echo "build_dev"
-      - run:
           name: Install Angular CLI
           command: npm install -g @angular/cli
       - run:
           name: Install Dependencies
           command: npm install
       - run:
-          name: Build client
+          name: Build client on dev
           command: npm run build
-      - run:
-          name: Echo job name
-          command: echo "deploy_dev"
       - aws-cli/setup
       - run:
-          name: Deploy client
+          name: Deploy client on dev
           command: aws s3 cp --recursive --acl public-read ./dist/product-store s3://shopping-cli-029828047956/
   build_and_deploy_prod:
     docker:
@@ -41,23 +35,17 @@ jobs:
       - node/install
       - checkout
       - run:
-          name: Echo job name
-          command: echo "build_prod"
-      - run:
           name: Install Angular CLI
           command: npm install -g @angular/cli
       - run:
           name: Install Dependencies
           command: npm install
       - run:
-          name: Build client
+          name: Build client on prod
           command: npm run build -- --configuration production
-      - run:
-          name: Echo job name
-          command: echo "deploy_prod"
       - aws-cli/setup
       - run:
-          name: Deploy client
+          name: Deploy client on prod
           command: aws s3 cp --recursive --acl public-read ./dist/product-store s3://shopping-cli-prod-029828047956/
 
 workflows:
