@@ -8,6 +8,13 @@ The product-store is a Udacity project deliverable. It offers the basic function
 
 Please ensure that the product-store API is running on the local machine. For download and instructions --> https://github.com/leuti/product-api.git.
 
+## Additional Documents
+
+Please refer to the folder docs for more details on
+
+- Architecture
+- Deployment
+
 ## Required modules
 
 This application makes use of the following libraries (incomplete list. See package.JSON for all dependencies):
